@@ -156,6 +156,14 @@ public class Empleado implements Serializable {
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
+
+    public void add(Empleado empleado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void remove(Empleado empleado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

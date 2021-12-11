@@ -107,7 +107,7 @@
 							<header class="mb-4"><h2 class="tm-text-shadow">Alta empleados</h2></header>
                                                         <div class="col-md-6 col-sm-12 tm-contact-col">
 									<div class="contact_message" style="width: 40vw; margin-top: 50px">
-										<form action="SvEmpleado" method="post" class="contact-form">
+										<form action="SvEmpleado" method="POST" class="contact-form">
 											<div class="form-group">
 												<input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
 											</div>

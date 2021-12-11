@@ -31,6 +31,7 @@ public class SvEmpleado extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String nacionalidad = request.getParameter("nacionalidad");
