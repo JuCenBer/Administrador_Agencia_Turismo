@@ -22,6 +22,7 @@ public class UsuarioJpaController implements Serializable {
         emf = Persistence.createEntityManagerFactory("beraunCentineo_Julian_EntregaFinalCOM2PU");
     }
     private EntityManagerFactory emf = null;
+    
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();

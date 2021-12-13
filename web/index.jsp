@@ -1,3 +1,8 @@
+<%@page import="java.util.Date"%>
+<%@page import="logica.Empleado"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
+<%@page import="logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,7 +11,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Constructive HTML Template</title>
+	<title>Panel de Control</title>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
 	<link rel="stylesheet" href="css/fontawesome-all.min.css">
@@ -51,7 +56,7 @@
 							<li>
 								<a href="#intro" id="tmNavLink1" class="scrolly active" data-bg-img="constructive_bg_01.jpg" data-page="#tm-section-1">
 									<i class="fas fa-home tm-nav-fa-icon"></i>
-									<span>Introduction</span>
+									<span>Inicio</span>
 								</a>
 							</li>
 							<li>
@@ -102,53 +107,82 @@
 					</section>
 
 					<!-- section 2 -->
-					<section id="tm-section-2" class="tm-section tm-section-carousel">
-						<div class="tm-bg-transparent-black tm-contact-box-pad" style="width: 50vw;">
-							<header class="mb-4"><h2 class="tm-text-shadow">Alta empleados</h2></header>
-                                                        <div class="col-md-6 col-sm-12 tm-contact-col">
-									<div class="contact_message" style="width: 40vw; margin-top: 50px">
-										<form action="SvEmpleado" method="POST" class="contact-form">
-											<div class="form-group">
-												<input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
-											</div>
-											<div class="form-group">
-												<input type="text" name="apellido" class="form-control" placeholder="Apellido" required>
-											</div>
-                                                                                        <div class="form-group">
-												<input type="text" name="dni" class="form-control" placeholder="DNI" required>
-											</div>
-                                                                                        <div class="form-group">
-												<input type="date" name="fecha_nac" class="form-control" placeholder="Fecha de nacimiento" required>
-											</div>
-                                                                                        <div class="form-group">
-												<input type="text" name="nacionalidad" class="form-control" placeholder="Nacionalidad" required>
-											</div>
-                                                                                        <div class="form-group">
-												<input type="text" name="direccion" class="form-control" placeholder="Direccion" required>
-											</div>
-											<div class="form-group">
-												<input type="text" name="cargo" class="form-control" placeholder="Cargo" required>
-											</div>
-                                                                                        <div class="form-group">
-												<input type="text" name="sueldo" class="form-control" placeholder="Sueldo" required>
-											</div>
-                                                                                        <div class="form-group">
-												<input type="text" name="celular" class="form-control" placeholder="Celular" required>
-											</div>
-                                                                                        <div class="form-group">
-												<input type="email" name="email" class="form-control" placeholder="E-mail" required>
-											</div>
-                                                                                        <div class="form-group">
-												<input type="text" name="nombreUsu" class="form-control" placeholder="Nombre de Usuario" required>
-											</div>
-                                                                                        <div class="form-group">
-												<input type="text" name="contrasenia" class="form-control" placeholder="Contraseña" required>
-											</div>
-											<button type="submit" class="btn tm-btn-submit tm-btn ml-auto">Submit</button>
-										</form>
+					<section id="tm-section-2" class="tm-section">						
+						<div class="row mb-4">
+							<header class="col-xl-12"><h2 class="tm-text-shadow">Empleados</h2></header>		
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fab fa-apple tm-icon-circled tm-icon-media"></i>
+									<div class="media-body">
+                                                                            <a class="btn tm-btn-submit tm-btn ml-auto" href="crearEmpleado.jsp">Alta</a>
 									</div>
-							</div>
-						</div>       		          	
+								</div>
+							</div>	
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<div class="media-body">
+										<a class="btn tm-btn-submit tm-btn ml-auto" href="buscarEmpleado.jsp">Buscar</a>										
+									</div>
+                                                                </div>
+							</div>    
+                                                        <div class="container">
+
+
+                                                        <div class="table-responsive custom-table-responsive tm-bg-transparent-black">
+
+                                                            <table class="table custom-table">
+                                                              <thead>
+                                                                    <tr>  
+                                                                        <th scope="col">Empleados</th>
+                                                                        <th scope="col">ID</th>
+                                                                        <th scope="col">DNI</th>
+                                                                        <th scope="col">Cargo</th>
+                                                                        <th scope="col">Sueldo</th>
+                                                                        <th scope="col">Celular</th>
+                                                                        <th scope="col">E-mail</th>
+                                                                        <th scope="col">Nacionalidad</th>
+                                                                        <th scope="col">Direccion</th>
+                                                                        <th scope="col">Fecha de Nacimiento</th>
+                                                                    </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                                    <% Controladora control = new Controladora();
+                                                                    List <Empleado> listaEmpleados = control.traerEmpleados();
+                                                                    for (Empleado emple: listaEmpleados){
+                                                                    %>
+                                                                    <tr>
+                                                                        <%String nombre = emple.getNombre() + " " + emple.getApellido();%>
+                                                                        <td> <%=nombre%> </td>
+                                                                        <% int ID = emple.getId_empleado();%>
+                                                                        <td> <%=ID%></td>
+                                                                        <% String DNI = emple.getDni();%>
+                                                                        <td> <%=DNI%></td>
+                                                                        <% String Cargo = emple.getCargo();%>
+                                                                        <td> <%=Cargo%></td>
+                                                                        <% double sueldo= emple.getSueldo();%>
+                                                                        <td> <%=sueldo%></td>
+                                                                        <% int celular = emple.getCelular();%>
+                                                                        <td> <%=celular%></td>
+                                                                        <% String Email = emple.getEmail();%>
+                                                                        <td> <%=Email%></td>
+                                                                        <% String nacionalidad = emple.getNacionalidad();%>
+                                                                        <td> <%=nacionalidad%></td>
+                                                                        <% String direccion = emple.getDireccion();%>
+                                                                        <td> <%=direccion%></td>
+                                                                        <% Date fecha_nac = emple.getFecha_nac();%>
+                                                                        <td> <%=fecha_nac%></td>
+                                                                    </tr>
+                                                              </tbody>
+                                                                    <%}%>
+                                                            </table>
+                                                        </div>
+                                                        </div>
+
+                                                      </div>
+						</div>						               
 					</section>
 
 					<!-- section 3 -->

@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Empleado implements Serializable {
@@ -21,13 +23,13 @@ public class Empleado implements Serializable {
     private String apellido;
     private String direccion;
     private String dni;
-    private Date fecha_nac;
     private String nacionalidad;
     private int celular;
     private String email;
     private String cargo;
     private double sueldo;
-    
+    @Temporal(TemporalType.DATE)  
+    private Date fecha_nac;
     @OneToOne
     private Usuario usu;
 

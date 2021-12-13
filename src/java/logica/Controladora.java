@@ -1,6 +1,7 @@
 package logica;
 
 import java.util.Date;
+import java.util.List;
 import persistencia.ControladoraPersistencia;
 
 public class Controladora {
@@ -31,4 +32,7 @@ public class Controladora {
         controlPersis.crearEmpleado(emple,usu);
     }   
     
+    public List<Empleado> traerEmpleados(){
+        return controlPersis.traerEmpleados();
+    }
 }

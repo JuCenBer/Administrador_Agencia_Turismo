@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.Controladora;
 
-@WebServlet(name = "SvEmpleado", urlPatterns = {"/SvEmpleado"})
-public class SvEmpleado extends HttpServlet {
+@WebServlet(name = "SvEmpleadoAlta", urlPatterns = {"/SvEmpleadoAlta"})
+public class SvEmpleadoAlta extends HttpServlet {
     
     Controladora control = new Controladora();
 
@@ -37,12 +37,12 @@ public class SvEmpleado extends HttpServlet {
         String nacionalidad = request.getParameter("nacionalidad");
         String email = request.getParameter("email");
         String aux = request.getParameter("fecha_nac");
-        SimpleDateFormat sdf = new SimpleDateFormat("MM-DD-YYYY");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
         Date fecha_nac = null;
         try {
             fecha_nac = sdf.parse(aux);
         } catch (ParseException ex) {
-            Logger.getLogger(SvEmpleado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SvEmpleadoAlta.class.getName()).log(Level.SEVERE, null, ex);
         }
         String direccion = request.getParameter("direccion");
         String dni = request.getParameter("dni");

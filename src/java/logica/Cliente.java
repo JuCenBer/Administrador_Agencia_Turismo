@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Cliente implements Serializable {
@@ -22,11 +24,11 @@ public class Cliente implements Serializable {
     private String apellido;
     private String direccion;
     private String dni;
-    private Date fecha_nac;
     private String nacionalidad;
     private int celular;
     private String email;
-    
+    @Temporal(TemporalType.DATE)  
+    private Date fecha_nac;
     @OneToMany
     private List<Venta> listaVentas;
 
