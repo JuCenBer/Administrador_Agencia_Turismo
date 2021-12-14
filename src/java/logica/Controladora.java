@@ -35,4 +35,56 @@ public class Controladora {
     public List<Empleado> traerEmpleados(){
         return controlPersis.traerEmpleados();
     }
+
+    public void borrarEmpleado(int id) {
+        controlPersis.borrarEmpleado(id);
+    }
+    
+    public Empleado buscarEmpleado(int id) {
+        return controlPersis.buscarEmpleado(id);
+    }
+    
+    public void modificarEmpleado(Empleado emple) {
+        controlPersis.modificarEmpleado(emple);
+    }
+    
+    //CLIENTE
+    public void crearCliente(String nombre, String apellido, Date fecha_nac, String direccion, String dni, int celular, String email, String nacionalidad) {
+        Cliente cli = new Cliente();
+        
+        cli.setNombre(nombre);
+        cli.setApellido(apellido);
+        cli.setFecha_nac(fecha_nac);
+        cli.setDireccion(direccion);
+        cli.setDni(dni);
+        cli.setCelular(celular);
+        cli.setEmail(email);
+        cli.setNacionalidad(nacionalidad);
+        
+        controlPersis.crearCliente(cli);
+    }
+    
+    public Cliente buscarCliente(int id){
+        return controlPersis.buscarCliente(id);
+    }
+
+    public List<Cliente> traerClientes(){
+        return controlPersis.traerClientes();
+    }
+    
+    public void borrarCliente(int id){
+        controlPersis.borrarCliente(id);
+    }
+    
+    public void modificarCliente(Cliente cli) {
+        controlPersis.modificarCliente(cli);
+    }
+    //SERVICIOS
+    
+    //PAQUETES
+    
+    //VENTAS
+
+    
 }
+

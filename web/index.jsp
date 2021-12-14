@@ -5,9 +5,9 @@
 <%@page import="logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -128,75 +128,30 @@
 									</div>
                                                                 </div>
 							</div>    
-                                                        <div class="container">
-
-
-                                                        <div class="table-responsive custom-table-responsive tm-bg-transparent-black">
-
-                                                            <table class="table custom-table">
-                                                              <thead>
-                                                                    <tr>  
-                                                                        <th scope="col">Empleados</th>
-                                                                        <th scope="col">ID</th>
-                                                                        <th scope="col">DNI</th>
-                                                                        <th scope="col">Cargo</th>
-                                                                        <th scope="col">Sueldo</th>
-                                                                        <th scope="col">Celular</th>
-                                                                        <th scope="col">E-mail</th>
-                                                                        <th scope="col">Nacionalidad</th>
-                                                                        <th scope="col">Direccion</th>
-                                                                        <th scope="col">Fecha de Nacimiento</th>
-                                                                    </tr>
-                                                              </thead>
-                                                              <tbody>
-                                                                    <% Controladora control = new Controladora();
-                                                                    List <Empleado> listaEmpleados = control.traerEmpleados();
-                                                                    for (Empleado emple: listaEmpleados){
-                                                                    %>
-                                                                    <tr>
-                                                                        <%String nombre = emple.getNombre() + " " + emple.getApellido();%>
-                                                                        <td> <%=nombre%> </td>
-                                                                        <% int ID = emple.getId_empleado();%>
-                                                                        <td> <%=ID%></td>
-                                                                        <% String DNI = emple.getDni();%>
-                                                                        <td> <%=DNI%></td>
-                                                                        <% String Cargo = emple.getCargo();%>
-                                                                        <td> <%=Cargo%></td>
-                                                                        <% double sueldo= emple.getSueldo();%>
-                                                                        <td> <%=sueldo%></td>
-                                                                        <% int celular = emple.getCelular();%>
-                                                                        <td> <%=celular%></td>
-                                                                        <% String Email = emple.getEmail();%>
-                                                                        <td> <%=Email%></td>
-                                                                        <% String nacionalidad = emple.getNacionalidad();%>
-                                                                        <td> <%=nacionalidad%></td>
-                                                                        <% String direccion = emple.getDireccion();%>
-                                                                        <td> <%=direccion%></td>
-                                                                        <% Date fecha_nac = emple.getFecha_nac();%>
-                                                                        <td> <%=fecha_nac%></td>
-                                                                    </tr>
-                                                              </tbody>
-                                                                    <%}%>
-                                                            </table>
-                                                        </div>
-                                                        </div>
-
-                                                      </div>
-						</div>						               
+                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<div class="media-body">
+                                                                            <form action="SvConsultaEmpleados" method="GET">
+										<a class="btn tm-btn-submit tm-btn ml-auto SUBMIT" href="SvConsultaEmpleados">Listado</a>
+                                                                            </form>										
+									</div>
+                                                                </div>
+							</div>
+                                                      </div>					               
 					</section>
 
 					<!-- section 3 -->
 					<section id="tm-section-3" class="tm-section">						
 						<div class="row mb-4">
-							<header class="col-xl-12"><h2 class="tm-text-shadow">Our Company</h2></header>		
+							<header class="col-xl-12"><h2 class="tm-text-shadow">Clientes</h2></header>		
 						</div>
 						<div class="row">
 							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
 								<div class="media tm-bg-transparent-black tm-border-white">
 									<i class="fab fa-apple tm-icon-circled tm-icon-media"></i>
 									<div class="media-body">
-										<h3>HTML Templates</h3>
-										<p>We provide a variety of templates for you at no cost. Please spread a word about <a href="https://plus.google.com/+tooplate" target="_parent">Tooplate</a> website. Thank you.</p>	
+                                                                            <a class="btn tm-btn-submit tm-btn ml-auto" href="crearCliente.jsp">Alta</a>
 									</div>
 								</div>
 							</div>	
@@ -204,30 +159,21 @@
 								<div class="media tm-bg-transparent-black tm-border-white">
 									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
-										<h3>Free Images</h3>
-										<p>Photos by <a href="https://unsplash.com" target="_blank">Unsplash.com</a> website, ac ornare arcu finibus sed. Aenean ultrices nisi sit amet facilisis viverra.</p>	
+										<a class="btn tm-btn-submit tm-btn ml-auto" href="buscarCliente.jsp">Buscar</a>										
 									</div>
-								</div>
-							</div>
-							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+                                                                </div>
+							</div>    
+                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
 								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fab fa-fly mr-4 tm-icon-circled tm-icon-media"></i>
+									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
-										<h3>Phasellus eleifend</h3>
-										<p>Phasellus feugiat scelerisque sapien, ac ornare arcu finibus sed. Aenean ultrices nisi sit amet facilisis viverra.</p>		
+                                                                            <form action="SvConsultaClientes" method="GET">
+										<a class="btn tm-btn-submit tm-btn ml-auto SUBMIT" href="SvConsultaClientes">Listado</a>
+                                                                            </form>							
 									</div>
-								</div>
+                                                                </div>
 							</div>
-							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
-								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fab fa-linode mr-4 tm-icon-circled tm-icon-media"></i>
-									<div class="media-body">
-										<h3>Phasellus eleifend</h3>
-										<p>Phasellus feugiat scelerisque sapien, ac ornare arcu finibus sed. Aenean ultrices nisi sit amet facilisis viverra.</p>	
-									</div>
-								</div>
-							</div>			          		
-						</div>						               
+                                                      </div>							               
 					</section>
 
 					<!-- section 4 -->
