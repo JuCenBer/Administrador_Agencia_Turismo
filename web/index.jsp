@@ -203,7 +203,41 @@
 								</div>
 							</div>
 						</div>
-					</section>					
+					</section>
+                                        <section id="tm-section-5" class="tm-section">						
+						<div class="row mb-4">
+							<header class="col-xl-12"><h2 class="tm-text-shadow">Servicios</h2></header>		
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fab fa-apple tm-icon-circled tm-icon-media"></i>
+									<div class="media-body">
+                                                                            <a class="btn tm-btn-submit tm-btn ml-auto" href="crearServicio.jsp">Alta</a>
+									</div>
+								</div>
+							</div>	
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<div class="media-body">
+										<a class="btn tm-btn-submit tm-btn ml-auto" href="buscarServicio.jsp">Buscar</a>										
+									</div>
+                                                                </div>
+							</div>    
+                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<div class="media-body">
+                                                                            <form action="SvConsultaServicios" method="GET">
+										<a class="btn tm-btn-submit tm-btn ml-auto SUBMIT" href="SvConsultaServicios">Listado</a>
+                                                                            </form>							
+									</div>
+                                                                </div>
+							</div>
+                                                      </div>							               
+					</section>
+                                        
 				</div>	<!-- .tm-content -->							
 			</div>	<!-- row -->			
 		</div>

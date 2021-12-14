@@ -13,14 +13,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import logica.Cliente;
 import logica.Controladora;
-import logica.Empleado;
-import logica.Usuario;
+import logica.Servicio;
 
-@WebServlet(name = "SvModificarCliente", urlPatterns = {"/SvModificarCliente"})
-public class SvModificarCliente extends HttpServlet {
 
+@WebServlet(name = "SvModificarServicio", urlPatterns = {"/SvModificarServicio"})
+public class SvModificarServicio extends HttpServlet {
     Controladora control = new Controladora();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -31,66 +29,65 @@ public class SvModificarCliente extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SvModificarCliente</title>");            
+            out.println("<title>Servlet SvModificarServicio</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SvModificarCliente at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SvModificarServicio at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         int id = Integer.parseInt(request.getParameter("id"));
         String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String nacionalidad = request.getParameter("nacionalidad");
-        String email = request.getParameter("email");
-        String aux = request.getParameter("fecha_nac");
+        String descripcion_breve = request.getParameter("descripcion_breve");
+        String destino_servicio = request.getParameter("destino_servicio");
+        String aux = request.getParameter("fecha_servicio");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date fecha_nac = null;
+        Date fecha_servicio = null;
         try {
-            fecha_nac = sdf.parse(aux);
+             fecha_servicio = sdf.parse(aux);
         } catch (ParseException ex) {
-            Logger.getLogger(SvEmpleadoAlta.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SvAltaServicio.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String direccion = request.getParameter("direccion");
-        String dni = request.getParameter("dni");
-        int celular = Integer.parseInt(request.getParameter("celular"));
+        double costo_servicio = Double.parseDouble(request.getParameter("costo_servicio"));
         
         
-        Cliente cli = control.buscarCliente(id);
-        cli.setNombre(nombre);
-        cli.setApellido(apellido);
-        cli.setNacionalidad(nacionalidad);
-        cli.setEmail(email);
-        cli.setFecha_nac(fecha_nac);
-        cli.setDireccion(direccion);
-        cli.setDni(dni);
-        cli.setCelular(celular);
+        Servicio ser = control.buscarServicio(id);
+        ser.setNombre(nombre);
+        ser.setDescripcion_breve(descripcion_breve);
+        ser.setDestino_servicio(destino_servicio);
+        ser.setFecha_servicio(fecha_servicio);
+        ser.setCosto_servicio(costo_servicio);
+                
+        control.modificarServicio(ser);
         
-        control.modificarCliente(cli);
-        
-        request.getSession().setAttribute("listaClientes", control.traerClientes());
-        response.sendRedirect("listadoClientes.jsp");
+        request.getSession().setAttribute("listaServicios", control.traerServicios());
+        response.sendRedirect("listadoServicios.jsp");
     }
 
- 
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Cliente cli = control.buscarCliente(id);
+        
+        Servicio ser = control.buscarServicio(id);
+        
         HttpSession misesion = request.getSession();
-        misesion.setAttribute("cli", cli);
-        response.sendRedirect("modificarCliente.jsp");
+        misesion.setAttribute("ser", ser);
+        response.sendRedirect("modificarServicio.jsp");
     }
 
+    
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

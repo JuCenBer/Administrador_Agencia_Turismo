@@ -14,9 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.Controladora;
 
-@WebServlet(name = "SvAltaCliente", urlPatterns = {"/SvAltaCliente"})
-public class SvAltaCliente extends HttpServlet {
 
+@WebServlet(name = "SvAltaServicio", urlPatterns = {"/SvAltaServicio"})
+public class SvAltaServicio extends HttpServlet {
+    
     Controladora control = new Controladora();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -27,46 +28,44 @@ public class SvAltaCliente extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SvAltaCliente</title>");            
+            out.println("<title>Servlet SvAltaServicio</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SvAltaCliente at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SvAltaServicio at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String nacionalidad = request.getParameter("nacionalidad");
-        String email = request.getParameter("email");
-        String aux = request.getParameter("fecha_nac");
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd"); 
-        Date fecha_nac = null;
+        String descripcion_breve = request.getParameter("descripcion");
+        String destino_servicio = request.getParameter("destino_servicio");
+        String aux = request.getParameter("fecha_servicio");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date fecha_servicio = null;
         try {
-            fecha_nac = formato.parse(aux);
+             fecha_servicio = sdf.parse(aux);
         } catch (ParseException ex) {
-            Logger.getLogger(SvAltaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SvAltaServicio.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String direccion = request.getParameter("direccion");
-        String dni = request.getParameter("dni");
-        int celular = Integer.parseInt(request.getParameter("celular"));
+        double costo_servicio = Double.parseDouble(request.getParameter("costo_servicio"));
         
-        control.crearCliente(nombre, apellido, fecha_nac, direccion, dni, celular, email, nacionalidad);
-        
-        response.sendRedirect("index.jsp"); //redireccionamiento a la pagina principal
+        control.crearServicio(nombre,descripcion_breve,destino_servicio,fecha_servicio,costo_servicio);
+        response.sendRedirect("index.jsp");
     }
 
+    
     @Override
     public String getServletInfo() {
         return "Short description";

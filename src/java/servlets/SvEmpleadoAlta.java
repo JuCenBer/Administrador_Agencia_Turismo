@@ -37,7 +37,7 @@ public class SvEmpleadoAlta extends HttpServlet {
         String nacionalidad = request.getParameter("nacionalidad");
         String email = request.getParameter("email");
         String aux = request.getParameter("fecha_nac");
-        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date fecha_nac = null;
         try {
             fecha_nac = sdf.parse(aux);

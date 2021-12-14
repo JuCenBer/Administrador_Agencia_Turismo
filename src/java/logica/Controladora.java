@@ -3,6 +3,7 @@ package logica;
 import java.util.Date;
 import java.util.List;
 import persistencia.ControladoraPersistencia;
+import persistencia.ServicioJpaController;
 
 public class Controladora {
     
@@ -80,10 +81,35 @@ public class Controladora {
         controlPersis.modificarCliente(cli);
     }
     //SERVICIOS
+    public void crearServicio(String nombre, String descripcion_breve, String destino_servicio, Date fecha_servicio, double costo_servicio) {
+        Servicio ser = new Servicio();
+        ser.setNombre(nombre);
+        ser.setDescripcion_breve(descripcion_breve);
+        ser.setDestino_servicio(destino_servicio);
+        ser.setFecha_servicio(fecha_servicio);
+        ser.setCosto_servicio(costo_servicio);
+        controlPersis.crearServicio(ser);
+    }
+    
+    public Servicio buscarServicio(int id){
+        return controlPersis.buscarServicio(id);
+    }
+    public List<Servicio> traerServicios(){
+        return controlPersis.traerServicios();
+    }
+    public void borrarServicio(int id){
+        controlPersis.borrarServicio(id);
+    }
+    public void modificarServicio(Servicio ser){
+        controlPersis.modificarServicio(ser);
+    }
+    
     
     //PAQUETES
     
     //VENTAS
+
+    
 
     
 }
