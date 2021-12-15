@@ -14,12 +14,12 @@ import javax.persistence.Persistence;
 import logica.Cliente;
 import persistencia.exceptions.NonexistentEntityException;
 
+
 public class ClienteJpaController implements Serializable {
 
     public ClienteJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    
     public ClienteJpaController(){
         emf = Persistence.createEntityManagerFactory("beraunCentineo_Julian_EntregaFinalCOM2PU");
     }

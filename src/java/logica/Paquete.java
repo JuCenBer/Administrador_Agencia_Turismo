@@ -1,6 +1,7 @@
 package logica;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -18,12 +19,15 @@ public class Paquete implements Serializable {
     private int idPaquete;
     @Basic
     private double costo_paquete;
+    private boolean habilitado = true;
     @ManyToMany
     private List<Servicio> lista_servicios_incluidos;
     @OneToMany
     private List<Venta> listaVentas;
 
     public Paquete() {
+        this.lista_servicios_incluidos = new ArrayList<Servicio>();
+        this.listaVentas = new ArrayList<Venta>();
     }
 
     public Paquete(int idPaquete, double costo_paquete, List<Servicio> lista_servicios_incluidos, List<Venta> listaVentas) {
@@ -32,7 +36,13 @@ public class Paquete implements Serializable {
         this.lista_servicios_incluidos = lista_servicios_incluidos;
         this.listaVentas = listaVentas;
     }
+    public boolean isHabilitado() {
+        return habilitado;
+    }
 
+    public void setHabilitado(boolean habilitado) {
+        this.habilitado = habilitado;
+    }
     public int getIdPaquete() {
         return idPaquete;
     }
@@ -68,11 +78,14 @@ public class Paquete implements Serializable {
     public void remove(Paquete paquete) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
     public void add(Paquete paquete) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
-    
+    public void add(Servicio ser) {
+        lista_servicios_incluidos.add(ser);
+    } 
+    public void limpiarListaServicios(){
+        lista_servicios_incluidos.clear();
+    }
 }

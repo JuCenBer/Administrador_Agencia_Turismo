@@ -106,8 +106,26 @@ public class Controladora {
     
     
     //PAQUETES
-    
+    public void crearPaquete(Paquete paq){
+        controlPersis.crearPaquete(paq);
+    }
+    public List<Paquete> traerPaquetes() {
+        return controlPersis.traerPaquetes();
+    }
+    public void borrarPaquete(int id){
+        controlPersis.borrarPaquete(id);
+    }
+    public void modificarPaquete(Paquete paq){
+        controlPersis.modificarPaquete(paq);
+    }
+    public Paquete buscarPaquete(int id) {
+        return controlPersis.buscarPaquete(id);
+    }
     //VENTAS
+
+    
+
+    
 
     
 

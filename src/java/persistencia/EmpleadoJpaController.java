@@ -14,12 +14,12 @@ import javax.persistence.Persistence;
 import logica.Empleado;
 import persistencia.exceptions.NonexistentEntityException;
 
+
 public class EmpleadoJpaController implements Serializable {
 
     public EmpleadoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    
     public EmpleadoJpaController(){
         emf = Persistence.createEntityManagerFactory("beraunCentineo_Julian_EntregaFinalCOM2PU");
     }

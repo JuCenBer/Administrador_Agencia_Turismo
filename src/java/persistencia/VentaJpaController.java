@@ -12,12 +12,12 @@ import javax.persistence.criteria.Root;
 import logica.Venta;
 import persistencia.exceptions.NonexistentEntityException;
 
+
 public class VentaJpaController implements Serializable {
 
     public VentaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    
     public VentaJpaController(){
         emf = Persistence.createEntityManagerFactory("beraunCentineo_Julian_EntregaFinalCOM2PU");
     }

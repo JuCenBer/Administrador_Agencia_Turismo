@@ -12,11 +12,10 @@ import javax.servlet.http.HttpSession;
 import logica.Controladora;
 import logica.Servicio;
 
-@WebServlet(name = "SvConsultaServicios", urlPatterns = {"/SvConsultaServicios"})
-public class SvConsultaServicios extends HttpServlet {
+@WebServlet(name = "SvConsultaServiciosPaquetes", urlPatterns = {"/SvConsultaServiciosPaquetes"})
+public class SvConsultaServiciosPaquetes extends HttpServlet {
 
     Controladora control = new Controladora();
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -25,30 +24,29 @@ public class SvConsultaServicios extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SvConsultaServicios</title>");            
+            out.println("<title>Servlet SvConsultaServiciosPaquetes</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SvConsultaServicios at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SvConsultaServiciosPaquetes at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Servicio> listaServicios = control.traerServicios();
         HttpSession misesion = request.getSession();
         misesion.setAttribute("listaServicios", listaServicios);
-        response.sendRedirect("listadoServicios.jsp");
+        response.sendRedirect("crearPaquete.jsp");;
     }
 
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        processRequest(request, response);
     }
 
     

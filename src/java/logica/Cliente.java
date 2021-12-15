@@ -27,6 +27,9 @@ public class Cliente implements Serializable {
     private String nacionalidad;
     private int celular;
     private String email;
+    private boolean habilitado = true;
+
+    
     @Temporal(TemporalType.DATE)  
     private Date fecha_nac;
     @OneToMany
@@ -47,7 +50,13 @@ public class Cliente implements Serializable {
         this.email = email;
         this.listaVentas = listaVentas;
     }
+    public boolean isHabilitado() {
+            return habilitado;
+        }
 
+        public void setHabilitado(boolean habilitado) {
+            this.habilitado = habilitado;
+        }
     public int getId_cliente() {
         return id_cliente;
     }

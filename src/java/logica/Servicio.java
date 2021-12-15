@@ -23,6 +23,8 @@ public class Servicio implements Serializable {
     private String destino_servicio;
     private Date fecha_servicio;
     private double costo_servicio;
+    private boolean habilitado = true;
+    
     @ManyToMany
     private List<Paquete> lista_paquetes;
     @OneToMany
@@ -41,7 +43,13 @@ public class Servicio implements Serializable {
         this.lista_paquetes = lista_paquetes;
         this.listaVentas = listaVentas;
     }
+    public boolean isHabilitado() {
+        return habilitado;
+    }
 
+    public void setHabilitado(boolean habilitado) {
+        this.habilitado = habilitado;
+    }
     public int getCodigo_servicio() {
         return codigo_servicio;
     }

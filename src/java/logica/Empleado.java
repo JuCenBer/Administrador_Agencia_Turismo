@@ -28,6 +28,7 @@ public class Empleado implements Serializable {
     private String email;
     private String cargo;
     private double sueldo;
+    private boolean habilitado = true;
     @Temporal(TemporalType.DATE)  
     private Date fecha_nac;
     @OneToOne
@@ -69,7 +70,13 @@ public class Empleado implements Serializable {
         this.cargo = cargo;
         this.sueldo = sueldo;
     }
+    public boolean isHabilitado() {
+        return habilitado;
+    }
 
+    public void setHabilitado(boolean habilitado) {
+        this.habilitado = habilitado;
+    }
     
     public int getId_empleado() {
         return id_empleado;
