@@ -2,7 +2,6 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,10 +11,11 @@ import javax.servlet.http.HttpSession;
 import logica.Controladora;
 import logica.Venta;
 
-@WebServlet(name = "SvConsultaVentas", urlPatterns = {"/SvConsultaVentas"})
-public class SvConsultaVentas extends HttpServlet {
+@WebServlet(name = "SvModificarVenta", urlPatterns = {"/SvModificarVenta"})
+public class SvModificarVenta extends HttpServlet {
 
     Controladora control = new Controladora();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -24,10 +24,10 @@ public class SvConsultaVentas extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SvConsultaVentas</title>");            
+            out.println("<title>Servlet SvModificarVenta</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SvConsultaVentas at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SvModificarVenta at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -37,17 +37,29 @@ public class SvConsultaVentas extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Venta> listaVentas = control.traerVentas();
-        HttpSession misesion = request.getSession();
-        misesion.setAttribute("listaVentas", listaVentas);
-        response.sendRedirect("listadoVentas.jsp");
+        processRequest(request, response);
     }
 
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int id = Integer.parseInt(request.getParameter("id"));
+        Venta ven = control.buscarVenta(id);
+        if (ven.getPaque() == null) {
+           HttpSession misesion = request.getSession();
+            misesion.setAttribute("listaClientes", control.traerClientes());
+            misesion.setAttribute("listaServicios", control.traerServicios());
+            misesion.setAttribute("ven", ven);
+            response.sendRedirect("modificarVentaServicio.jsp"); 
+        }else if (ven.getServi() == null) {
+            HttpSession misesion = request.getSession();
+            misesion.setAttribute("listaClientes", control.traerClientes());
+            misesion.setAttribute("listaPaquetes", control.traerPaquetes());
+            misesion.setAttribute("ven", ven);
+            response.sendRedirect("modificarVentaPaquete.jsp");
+        }
+        
     }
 
     

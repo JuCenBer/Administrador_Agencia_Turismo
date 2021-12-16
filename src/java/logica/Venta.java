@@ -24,12 +24,13 @@ public class Venta implements Serializable {
     private Empleado emple;
     private Servicio servi;
     private Paquete paque;
+    private Double costo;
 
     
     public Venta() {
     }
 
-    public Venta(int num_venta, Date fecha_venta, String medio_pago, Cliente cli, Empleado emple, Servicio servi, Paquete paque) {
+    public Venta(int num_venta, Date fecha_venta, String medio_pago, Cliente cli, Empleado emple, Servicio servi, Paquete paque, Double costo) {
         this.num_venta = num_venta;
         this.fecha_venta = fecha_venta;
         this.medio_pago = medio_pago;
@@ -37,8 +38,16 @@ public class Venta implements Serializable {
         this.emple = emple;
         this.servi = servi;
         this.paque = paque;
+        this.costo = costo;
     }
     
+    public Double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(Double costo) {
+        this.costo = costo;
+    }
     public int getNum_venta() {
         return num_venta;
     }
