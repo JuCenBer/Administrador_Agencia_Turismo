@@ -40,6 +40,7 @@
                         <% HttpSession misesion = request.getSession() ;
                         List <Empleado> listaEmpleados = (List) request.getSession().getAttribute("listaEmpleados");
                         for (Empleado emple: listaEmpleados){
+                            if (emple.isHabilitado()) {
                         %>
                         <tr>
                             <%String nombre = emple.getNombre() + " " + emple.getApellido();%>
@@ -75,7 +76,7 @@
                             <td></td>
                         </tr>
                   </tbody>
-                        <%}%>
+                        <%}}%>
                 </table>
             </div>
             </div>

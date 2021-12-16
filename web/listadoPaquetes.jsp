@@ -33,6 +33,7 @@
                         <% HttpSession misesion = request.getSession() ;
                         List <Paquete> listaPaquetes = (List) request.getSession().getAttribute("listaPaquetes");
                         for (Paquete paq: listaPaquetes){
+                            if (paq.isHabilitado()) {
                         %>
                         <tr>
                             <%int ID= paq.getIdPaquete();%>
@@ -57,7 +58,7 @@
                             </td>
                         </tr>
                   </tbody>
-                        <%}%>
+                        <%}}%>
                 </table>
             </div>
             </div>

@@ -7,13 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.Cliente;
-import logica.Controladora;
 
-@WebServlet(name = "SvEliminarCliente", urlPatterns = {"/SvEliminarCliente"})
-public class SvEliminarCliente extends HttpServlet {
+@WebServlet(name = "SvConsultaVentas", urlPatterns = {"/SvConsultaVentas"})
+public class SvConsultaVentas extends HttpServlet {
 
-    Controladora control = new Controladora();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -23,32 +20,30 @@ public class SvEliminarCliente extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SvEliminarCliente</title>");            
+            out.println("<title>Servlet SvConsultaVentas</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SvEliminarCliente at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SvConsultaVentas at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Cliente cli = control.buscarCliente(id);
-        cli.setHabilitado(false);
-        control.modificarCliente(cli);
-        request.getSession().setAttribute("listaClientes", control.traerClientes());
-        response.sendRedirect("listadoClientes.jsp");
+        processRequest(request, response);
     }
 
+    
     @Override
     public String getServletInfo() {
         return "Short description";

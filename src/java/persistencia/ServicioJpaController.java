@@ -20,7 +20,6 @@ public class ServicioJpaController implements Serializable {
     public ServicioJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    
     public ServicioJpaController(){
         emf = Persistence.createEntityManagerFactory("beraunCentineo_Julian_EntregaFinalCOM2PU");
     }

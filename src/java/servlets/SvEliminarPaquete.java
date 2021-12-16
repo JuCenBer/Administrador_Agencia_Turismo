@@ -7,14 +7,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.Cliente;
 import logica.Controladora;
+import logica.Paquete;
 
-@WebServlet(name = "SvEliminarCliente", urlPatterns = {"/SvEliminarCliente"})
-public class SvEliminarCliente extends HttpServlet {
+@WebServlet(name = "SvEliminarPaquete", urlPatterns = {"/SvEliminarPaquete"})
+public class SvEliminarPaquete extends HttpServlet {
 
-    Controladora control = new Controladora();
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -23,10 +21,10 @@ public class SvEliminarCliente extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SvEliminarCliente</title>");            
+            out.println("<title>Servlet SvEliminarPaquete</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SvEliminarCliente at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SvEliminarPaquete at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -42,13 +40,17 @@ public class SvEliminarCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Cliente cli = control.buscarCliente(id);
-        cli.setHabilitado(false);
-        control.modificarCliente(cli);
-        request.getSession().setAttribute("listaClientes", control.traerClientes());
-        response.sendRedirect("listadoClientes.jsp");
+        Controladora control = new Controladora();
+        
+        Paquete paq = control.buscarPaquete(id);
+        paq.setHabilitado(false);
+        control.modificarPaquete(paq);
+        
+        request.getSession().setAttribute("listaPaquetes", control.traerPaquetes());
+        response.sendRedirect("listadoPaquetes.jsp");
     }
 
+    
     @Override
     public String getServletInfo() {
         return "Short description";

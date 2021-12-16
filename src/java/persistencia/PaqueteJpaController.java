@@ -20,7 +20,6 @@ public class PaqueteJpaController implements Serializable {
     public PaqueteJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    
     public PaqueteJpaController(){
         emf = Persistence.createEntityManagerFactory("beraunCentineo_Julian_EntregaFinalCOM2PU");
     }

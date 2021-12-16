@@ -41,6 +41,7 @@
                         int i = 0;
                         List <Servicio> listaServicios = (List) request.getSession().getAttribute("listaServicios");
                         for (Servicio ser: listaServicios){
+                            if(ser.isHabilitado()){
                         %>
                         <tr>
                             <% int ID = ser.getCodigo_servicio();%>
@@ -59,7 +60,7 @@
                             <td> <%=costo_servicio%></td>
                         </tr>
                         
-                        <%i++; }%>
+                        <%i++; }}%>
                   </tbody> 
                 </table>
                   <button class="btn tm-btn-submit tm-btn ml-auto" type="submit">Crear Paquete</button> 

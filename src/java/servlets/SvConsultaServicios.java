@@ -40,7 +40,7 @@ public class SvConsultaServicios extends HttpServlet {
             throws ServletException, IOException {
         List<Servicio> listaServicios = control.traerServicios();
         HttpSession misesion = request.getSession();
-        misesion.setAttribute("listaServicios", listaServicios);
+        request.setAttribute("listaServicios", listaServicios);
         response.sendRedirect("listadoServicios.jsp");
     }
 

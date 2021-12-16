@@ -123,6 +123,21 @@ public class Controladora {
     }
     //VENTAS
 
+    public void crearVenta(Venta ven) {
+        controlPersis.crearVenta(ven);
+    }
+    public List<Venta> traerVentas() {
+        return controlPersis.traerVentas();
+    }
+    public void borrarVenta(int id){
+        controlPersis.borrarVenta(id);
+    }
+    public void modificarVenta(Venta ven){
+        controlPersis.modificarPaquete(ven);
+    }
+    public Venta buscarVenta(int id) {
+        return controlPersis.buscarVenta(id);
+    }
     
 
     

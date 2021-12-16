@@ -178,31 +178,43 @@
 
 					<!-- section 4 -->
 					<section id="tm-section-4" class="tm-section">
-						<div class="tm-bg-transparent-black tm-contact-box-pad" style="width: 60vw;">
-							<div class="row mb-4">
-								<div class="col-sm-12">
-									<header><h2 class="tm-text-shadow">Contact Us</h2></header>
-								</div>
-							</div>
-							<div class="row tm-page-4-content">
-								<div class="col-md-6 col-sm-12 tm-contact-col">
-									<div class="contact_message">
-										<form action="#contact" method="post" class="contact-form">
-											<div class="form-group">
-												<input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name" required>
-											</div>
-											<div class="form-group">
-												<input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email" required>
-											</div>
-											<div class="form-group">
-												<textarea id="contact_message" name="contact_message" class="form-control" rows="9" placeholder="Message" required></textarea>
-											</div>
-											<button type="submit" class="btn tm-btn-submit tm-btn ml-auto">Submit</button>
-										</form>
+                                            <div class="row mb-4">
+							<header class="col-xl-12" style="margin: auto;"><h2 class="tm-text-shadow">¿Qué desea vender?</h2></header>		
+						</div>
+                                                
+						<div class="row">
+		
+                                                            <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fab fa-apple tm-icon-circled tm-icon-media"></i>
+									<div class="media-body">
+                                                                            <form action="SvAltaVentaServicio" method="get">
+                                                                                <a class="btn tm-btn-submit tm-btn ml-auto" href="SvAltaVentaServicio">Servicios</a>
+                                                                            </form>
 									</div>
 								</div>
+                                                            </div>	
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<div class="media-body">
+                                                                            <form action="SvAltaVentaServicio" method="get">
+										<a class="btn tm-btn-submit tm-btn ml-auto" href="SvAltaVentaPaquete">Paquete</a>
+                                                                            </form>										
+									</div>
+                                                                </div>
 							</div>
-						</div>
+                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<div class="media-body">
+                                                                            <form action="SvConsultaClientes" method="GET">
+										<a class="btn tm-btn-submit tm-btn ml-auto SUBMIT" href="SvConsultaVentas">Listado</a>
+                                                                            </form>							
+									</div>
+                                                                </div>
+							</div>
+                                                </div>
 					</section>
                                         <section id="tm-section-5" class="tm-section">						
 						<div class="row mb-4">

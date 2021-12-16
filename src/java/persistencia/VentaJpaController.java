@@ -12,7 +12,6 @@ import javax.persistence.criteria.Root;
 import logica.Venta;
 import persistencia.exceptions.NonexistentEntityException;
 
-
 public class VentaJpaController implements Serializable {
 
     public VentaJpaController(EntityManagerFactory emf) {

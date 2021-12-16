@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@page import="logica.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -38,7 +40,9 @@
                                     <input type="text" name="dni" class="form-control" placeholder="DNI" required value="<%=cli.getDni()%>">
 				</div>
                                 <div class="form-group">
-					<input type="date" name="fecha_nac" class="form-control" placeholder="Fecha de nacimiento" required value="<%=cli.getFecha_nac()%>">
+                                        <%SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                                            String fecha_nac = sdf.format(cli.getFecha_nac());%>
+					<input type="date" name="fecha_nac" class="form-control" placeholder="Fecha de nacimiento" required value="<%=fecha_nac%>">
 				</div>
                                 <div class="form-group">
                                     <input type="text" name="nacionalidad" class="form-control" placeholder="Nacionalidad" required value="<%=cli.getNacionalidad()%>">

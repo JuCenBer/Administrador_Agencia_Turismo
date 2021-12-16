@@ -45,6 +45,7 @@
                         List <Servicio> serviciosIncluidos = paq.getLista_servicios_incluidos();
                         String check;
                         for (Servicio ser: listaServicios){
+                            if(ser.isHabilitado()){
                             check = "";
                             for (Servicio ser1: serviciosIncluidos){
                                 if(ser.getCodigo_servicio() == ser1.getCodigo_servicio()){
@@ -71,7 +72,7 @@
                         
                         
                   </tbody>
-                  <%i++; }%> 
+                  <%i++; }}%> 
                   <input type="hidden" name="id" value="<%=paq.getIdPaquete()%>">
                 </table>
                        <button class="btn tm-btn-submit tm-btn ml-auto" type="submit">Modificar Paquete</button> 

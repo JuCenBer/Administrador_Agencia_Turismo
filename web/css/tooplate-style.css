@@ -14,7 +14,15 @@ body {
 #preload-02 { background: url(../img/constructive_bg_02.jpg) no-repeat -9999px -9999px; }
 #preload-03 { background: url(../img/constructive_bg_03.jpg) no-repeat -9999px -9999px; }
 #preload-04 { background: url(../img/constructive_bg_04.jpg) no-repeat -9999px -9999px; }
+#preferences {
+  display: inline-block;
+  list-style: none;
+}
 
+#preferences-label {
+  display: inline-block;
+  vertical-align: top;
+}
 ul { margin: 0; padding: 0; }
 
 a, button { transition: all 0.3s ease; }

@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="logica.Cliente"%>
 <%@page import="java.util.List"%>
@@ -37,7 +38,10 @@
                   <tbody>
                         <% HttpSession misesion = request.getSession() ;
                         List <Cliente> listaClientes = (List) request.getSession().getAttribute("listaClientes");
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        String fecha_nac;
                         for (Cliente cli: listaClientes){
+                            if (cli.isHabilitado()) {
                         %>
                         <tr>
                             <%String nombre = cli.getNombre() + " " + cli.getApellido();%>
@@ -54,7 +58,7 @@
                             <td> <%=nacionalidad%></td>
                             <% String direccion = cli.getDireccion();%>
                             <td> <%=direccion%></td>
-                            <% Date fecha_nac = cli.getFecha_nac();%>
+                            <% fecha_nac = sdf.format(cli.getFecha_nac());%>
                             <td> <%=fecha_nac%></td>
                             <td>
                                 <form name="formBorrarCliente" action="SvEliminarCliente" method="post">
@@ -69,7 +73,7 @@
                             <td></td>
                         </tr>
                   </tbody>
-                        <%}%>
+                        <%}}%>
                 </table>
             </div>
             </div>

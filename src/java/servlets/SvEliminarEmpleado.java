@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.Controladora;
+import logica.Empleado;
 
 @WebServlet(name = "SvEliminarEmpleado", urlPatterns = {"/SvEliminarEmpleado"})
 public class SvEliminarEmpleado extends HttpServlet {
@@ -42,7 +43,9 @@ public class SvEliminarEmpleado extends HttpServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Controladora control = new Controladora();
-        control.borrarEmpleado(id);
+        Empleado emple = control.buscarEmpleado(id);
+        emple.setHabilitado(false);
+        control.modificarEmpleado(emple);
         request.getSession().setAttribute("listaEmpleados", control.traerEmpleados());
         response.sendRedirect("listadoEmpleados.jsp");
     }

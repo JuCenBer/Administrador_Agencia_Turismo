@@ -24,7 +24,6 @@ public class Venta implements Serializable {
     private Empleado emple;
     private Servicio servi;
     private Paquete paque;
-    private boolean habilitado = true;
 
     
     public Venta() {
@@ -39,13 +38,7 @@ public class Venta implements Serializable {
         this.servi = servi;
         this.paque = paque;
     }
-    public boolean isHabilitado() {
-        return habilitado;
-    }
-
-    public void setHabilitado(boolean habilitado) {
-        this.habilitado = habilitado;
-    }
+    
     public int getNum_venta() {
         return num_venta;
     }
