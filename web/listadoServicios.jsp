@@ -36,8 +36,7 @@
                   </thead>
                   <tbody>
                         <% HttpSession misesion = request.getSession() ;
-                        int i = 0;
-                        List <Servicio> listaServicios = (List) request.getSession().getAttribute("listaServicios");
+                        List<Servicio> listaServicios =(List) request.getSession().getAttribute("listaServicios");
                         for (Servicio ser: listaServicios){
                             if(ser.isHabilitado()){
                         %>

@@ -208,7 +208,7 @@
 								<div class="media tm-bg-transparent-black tm-border-white">
 									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
-                                                                            <form action="SvConsultaClientes" method="GET">
+                                                                            <form action="SvConsultaVentas" method="get">
 										<a class="btn tm-btn-submit tm-btn ml-auto SUBMIT" href="SvConsultaVentas">Listado</a>
                                                                             </form>							
 									</div>
@@ -241,7 +241,7 @@
 								<div class="media tm-bg-transparent-black tm-border-white">
 									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
-                                                                            <form action="SvConsultaServicios" method="GET">
+                                                                            <form action="SvConsultaServicios" method="get">
 										<a class="btn tm-btn-submit tm-btn ml-auto SUBMIT" href="SvConsultaServicios">Listado</a>
                                                                             </form>							
 									</div>

@@ -82,7 +82,6 @@
                         for (Servicio ser: listaServiciosSeleccionados){
                         %>
                         <tr>
-                            
                             <%String nombreSer = ser.getNombre();%>
                             <td> <%=nombreSer%> </td>
                             <% int IDSer = ser.getCodigo_servicio();%>
@@ -95,12 +94,14 @@
                             <td> <%=fecha_servicio%></td>
                             <% double costo_servicio = ser.getCosto_servicio();%>
                             <td> <%=costo_servicio%></td>
-                            <input type="hidden" name="idServicio<%=i%>" value="<%=IDSer%>">
                         </tr>
                   </tbody>
-                        
+                        <input type="hidden" name="idServicio<%=i%>" value="<%=IDSer%>">
+                         <%i++; }%> 
                 </table>
-                <%i++; }%>
+                 
+               
+               
                     <div style="width: 65vw; display: flex; flex-direction: row; justify-content: space-between;">
                         <div> 
                             <h4 class="tm-text-shadow">Medio de pago: <%=medioPago%></h4>

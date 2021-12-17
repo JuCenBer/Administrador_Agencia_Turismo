@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="logica.Paquete"%>
 <%@page import="logica.Servicio"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -8,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Listado de Paquetes</title>
+        <title>Listado de Ventas</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
 	<link rel="stylesheet" href="css/fontawesome-all.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -48,27 +49,30 @@
                                Servicio ser = ven.getServi();
                                Paquete paq = ven.getPaque();
                                String serviciosVendidos=" ";
-                               List<Servicio>listadoServiciosPaquete = paq.getLista_servicios_incluidos();
+                               List<Servicio>listadoServiciosPaquete = null;
+                               if(ser != null){
+                                   serviciosVendidos = ser.getNombre() + "-";
+                               }
+                               
                                try{
-                               costo += ser.getCosto_servicio();
-                               serviciosVendidos = ser.getNombre() + "-";
+                                listadoServiciosPaquete = paq.getLista_servicios_incluidos();
                                }
                                catch(Exception e){
                                    
                                }
                                
+                               if(listadoServiciosPaquete != null){
                                for(Servicio ser1: listadoServiciosPaquete){
-                               try{
                                    costo += ser1.getCosto_servicio();
                                    serviciosVendidos += ser1.getNombre()+ " - ";
-                               }
-                               catch(Exception e){  
-                               }
-                                   
-                                }%>
+                               }}
+  
+                               
+                                  
+                                %>
                             <td><%=serviciosVendidos%></td>
                             <td><%=ven.getMedio_pago()%></td>
-                            <td><%=costo%></td>
+                            <td><%=ven.getCosto()%></td>
                             <td>
                                 <form name="formBorrarPaquete" action="SvEliminarVenta" method="post">
                                     <input type="hidden" name="id" value="<%=ID%>">
