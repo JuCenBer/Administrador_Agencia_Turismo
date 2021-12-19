@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import logica.Cliente;
 import logica.Controladora;
+import logica.Empleado;
 import logica.Servicio;
 import logica.Venta;
 
@@ -58,6 +59,8 @@ public class SvConfirmarVentaServicio extends HttpServlet {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         double costo = Double.parseDouble(request.getParameter("costo"));
         String metodoPago = request.getParameter("medioPago");
+        int idEmpleado = Integer.parseInt(request.getParameter("idEmpleado"));
+        Empleado emple = control.buscarEmpleado(idEmpleado);
         Servicio ser = new Servicio();
         List<Servicio> listaServicios = control.traerServicios();
         LocalDateTime now = LocalDateTime.now(); 
@@ -74,9 +77,11 @@ public class SvConfirmarVentaServicio extends HttpServlet {
                 if (id != 0) {
                    Venta ven = new Venta();
                    ser = control.buscarServicio(id);
+                   ven.setCosto(costo);
                    ven.setCli(cli);
                    ven.setMedio_pago(metodoPago);
                    ven.setServi(ser);
+                   ven.setEmple(emple);
                     try {
                         ven.setFecha_venta(sdf.parse(aux));
                     } catch (ParseException ex) {

@@ -62,7 +62,7 @@
                         %>
                         <tr>
                             <% int ID = cli.getId_cliente();%>
-                            <td><input name="Clicheckbox<%=j%>" class="check" type="checkbox" value="<%=ID%>"></td>
+                            <td><input name="Clicheckbox<%=j%>" type="checkbox"  class="check" value="<%=ID%>"></td>
                             <%String nombre = cli.getNombre() + " " + cli.getApellido();%>
                             <td> <%=nombre%> </td>
                             <td> <%=ID%></td>
@@ -104,7 +104,7 @@
                         <tr>
                             <% double costo_servicio = ser.getCosto_servicio();%>
                             <% int ID = ser.getCodigo_servicio();%>
-                            <td><input name="Sercheckbox<%=i%>" type="checkbox" value="<%=ID%>"></td>
+                            <td><input name="Sercheckbox<%=i%>" type="checkbox" class="check1" value="<%=ID%>"></td>
                             <%String nombre = ser.getNombre();%>
                             <td> <%=nombre%> </td>
                             <td> <%=ID%></td>
@@ -119,7 +119,7 @@
                         <%i++; }}%>
                   </tbody> 
                 </table>
-                <header class="col-xl-12"><h2 class="tm-text-shadow">Seleccione el metodo de pago</h2></header>
+                <h2 class="tm-text-shadow">Seleccione el metodo de pago</h2>
                 <ul>
                     <li><label for="Efectivo"><input type="radio" value="Efectivo" name="medio_pago" checked>   Efectivo</label></li>
                     <li><label for="Tarjeta de Debito (3% comision)"><input value="Tarjeta de Debito" type="radio" name="medio_pago">   Tarjeta de Debito (3% comision </label></li>
@@ -139,6 +139,16 @@
                 function selectiveCheck (event) {
                   var checkedChecks = document.querySelectorAll(".check:checked");
                   if (checkedChecks.length >= max + 1)
+                    return false;
+                }
+                
+                var checks1 = document.querySelectorAll(".check1");
+                var max1 = 1;
+                for (var i = 0; i < checks1.length; i++)
+                  checks1[i].onclick = selectiveCheck;
+                function selectiveCheck1 (event) {
+                  var checkedChecks1 = document.querySelectorAll(".check1:checked");
+                  if (checkedChecks1.length >= max + 1)
                     return false;
                 }
                 

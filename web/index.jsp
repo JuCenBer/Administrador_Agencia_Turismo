@@ -99,6 +99,12 @@
 									<span>Paquetes</span>
 								</a>
 							</li>
+                                                        <li>
+								<a href="#recaudaciones" class="scrolly" data-bg-img="constructive_bg_04.jpg" data-page="#tm-section-7">
+									<i class="fas fa-comments tm-nav-fa-icon"></i>
+									<span>Recaudaciones</span>
+								</a>
+							</li>
 						</ul>
 					</nav>
 				</div>
@@ -292,7 +298,29 @@
 							</div>
                                                       </div>							               
 					</section>
-                                        
+                                        <section id="tm-section-7" class="tm-section">						
+						<div class="row mb-4">
+							<header class="col-xl-12"><h2 class="tm-text-shadow">Recaudaciones</h2></header>		
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fab fa-apple tm-icon-circled tm-icon-media"></i>
+									<div class="media-body">
+                                                                            <a class="btn tm-btn-submit tm-btn ml-auto" href="SvConsultaRecaudaciones">Ver recaudaciones por mes</a>
+									</div>
+								</div>
+							</div>	
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+								<div class="media tm-bg-transparent-black tm-border-white">
+									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<div class="media-body">
+										<a class="btn tm-btn-submit tm-btn ml-auto" href="buscarServicio.jsp">Ver recaudacion por dia</a>										
+									</div>
+                                                                </div>
+							</div>    
+                                                      </div>							               
+					</section>
 				</div>	<!-- .tm-content -->							
 			</div>	<!-- row -->			
 		</div>

@@ -111,7 +111,8 @@
                         </div>
  
                      </div>
-                         <input type="hidden" name="idPaquete" value="<%=IDPaq%>">
+                        <input type="hidden" name="idEmpleado" value="<%=idEmpleado%>">
+                        <input type="hidden" name="idPaquete" value="<%=IDPaq%>">
                         <input type="hidden" name="medioPago" value="<%=medioPago%>">
                         <input type="hidden" name="costo" value="<%=costo%>">
                         <input type="hidden" id="datePicker" name="fechaVenta">
@@ -119,9 +120,6 @@
                 </form>
             </div>
             </div>
-            <script>
-                document.getElementById('datePicker').value = new Date().toDateInputValue();
-            </script>
            <%}%>         
     </body>
 </html>

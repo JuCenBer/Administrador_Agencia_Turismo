@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.Cliente;
 import logica.Controladora;
+import logica.Empleado;
 import logica.Paquete;
 import logica.Servicio;
 import logica.Venta;
@@ -57,12 +58,15 @@ public class SvConfirmarVentaPaquete extends HttpServlet {
         String metodoPago = request.getParameter("medioPago");
         Paquete paq = new Paquete();
         id = Integer.parseInt(request.getParameter("idPaquete"));
-        
+        int idEmpleado = Integer.parseInt(request.getParameter("idEmpleado"));
+        Empleado emple = control.buscarEmpleado(idEmpleado);
         LocalDateTime now = LocalDateTime.now(); 
         String aux = String.valueOf(now);
         
         Venta ven = new Venta();
         paq = control.buscarPaquete(id);
+        ven.setCosto(costo);
+        ven.setEmple(emple);
         ven.setCli(cli);
         ven.setMedio_pago(metodoPago);
         ven.setPaque(paq);
