@@ -34,6 +34,16 @@
 </head>
 
 <body>
+    <%
+    HttpSession misesion = request.getSession();
+    String usuario = (String) misesion.getAttribute("usuario");
+    String contrasenia = (String) misesion.getAttribute("contrasenia");
+    int idEmpleado = (Integer) misesion.getAttribute("idEmpleado");
+        if(usuario == null){
+            response.sendRedirect("login.jsp");
+        }
+        else{
+    %>
 	<!-- Loader -->
 	<div id="loader-wrapper">
 		<div id="loader"></div>
@@ -465,5 +475,6 @@
 		});
 
 		</script>
+                <%}%>
 	</body>
 </html>

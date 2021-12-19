@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import logica.Controladora;
 import logica.Empleado;
 import logica.Usuario;
@@ -42,15 +43,32 @@ public class SvIniciarSesion extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Empleado> listaEmpleados = control.traerEmpleados();
-        Usuario usu;
-        if(listaEmpleados != null){
+        
+        String usuario = request.getParameter("usuario");
+        String contrasenia = request.getParameter("contrasenia");
+        boolean autorizado = control.verificarUsuario(usuario,contrasenia);
+        if(autorizado == true){
+            HttpSession misesion = request.getSession(true);
+            int id = 0;
+            List<Empleado> listaEmpleados = control.traerEmpleados();
             for (Empleado emple: listaEmpleados) {
-                usu = emple.getUsu();
+                Usuario usu = emple.getUsu();
+                if((usu.getNombreUsu().equals(usuario)) && (usu.getContrasenia().equals(contrasenia))){
+                    id = emple.getId_empleado();
+                    break;
+                }
             }
+            misesion.setAttribute("idEmpleado", id);
+            misesion.setAttribute("usuario", usuario);
+            misesion.setAttribute("contrasenia", contrasenia);
+            
+            response.sendRedirect("index.jsp");
+        }
+        else{
+            response.sendRedirect("login.jsp");
         }
     }
-
+    
     @Override
     public String getServletInfo() {
         return "Short description";

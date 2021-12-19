@@ -138,6 +138,19 @@ public class Controladora {
     public Venta buscarVenta(int id) {
         return controlPersis.buscarVenta(id);
     }
+
+    //USUARIO   
+    public boolean verificarUsuario(String usuario, String contrasenia) {
+        List<Usuario> listaUsuarios = controlPersis.traerUsuarios();
+        if(listaUsuarios != null){
+             for (Usuario usu: listaUsuarios) {
+                 if ((usu.getNombreUsu().equals(usuario)) && (usu.getContrasenia().equals(contrasenia))){
+                    return true;
+                }
+            }
+        } 
+        return false;
+    }
     
 
     

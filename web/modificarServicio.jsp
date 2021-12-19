@@ -18,13 +18,23 @@
 	<link rel="stylesheet" href="css/tooplate-style.css">
     </head>
     <body>
+        <%
+        HttpSession misesion = request.getSession();
+        String usuario = (String) misesion.getAttribute("usuario");
+        String contrasenia = (String) misesion.getAttribute("contrasenia");
+        int idEmpleado = (Integer) misesion.getAttribute("idEmpleado");
+            if(usuario == null){
+                response.sendRedirect("login.jsp");
+            }
+            else{
+        %>
         <section id="tm-section-2" class="tm-section">
             <div class="tm-bg-transparent-black tm-contact-box-pad" style="width: 50vw;">
 		<header class="mb-4"><h2 class="tm-text-shadow">Modificar Servicio</h2></header>
                     <div class="col-md-6 col-sm-12 tm-contact-col">
 			<div class="contact_message" style="width: 40vw; margin-top: 50px">
                             <form action="SvModificarServicio" method="get" class="contact-form">
-                                <% HttpSession misesion = request.getSession(); 
+                                <%
                                 Servicio ser = (Servicio) misesion.getAttribute("ser");
                                 {%>
                                 
@@ -51,5 +61,6 @@
                     </div>
             </div>       		          	
         </section>
+          <%}%>
     </body>
 </html>

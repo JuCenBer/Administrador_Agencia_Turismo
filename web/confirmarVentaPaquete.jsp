@@ -18,6 +18,16 @@
 	<link rel="stylesheet" href="css/tooplate-style.css">
     </head>
     <body style="background-color:grey;">
+        <%
+        HttpSession misesion = request.getSession();
+        String usuario = (String) misesion.getAttribute("usuario");
+        String contrasenia = (String) misesion.getAttribute("contrasenia");
+        int idEmpleado = (Integer) misesion.getAttribute("idEmpleado");
+            if(usuario == null){
+                response.sendRedirect("login.jsp");
+            }
+            else{
+        %>
         <div class="container">
             <div class="table-responsive custom-table-responsive tm-bg-transparent-black">
                 <header class="col-xl-12"><h2 class="tm-text-shadow">Informacion de la Compra</h2></header>
@@ -36,8 +46,7 @@
                         </tr>
                   </thead>
                   <tbody>
-                        <% HttpSession misesion = request.getSession() ;
-                        
+                        <%                        
                         Double costo = (Double) misesion.getAttribute("costo");
                         String medioPago = (String) misesion.getAttribute("medioPago");
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -113,6 +122,6 @@
             <script>
                 document.getElementById('datePicker').value = new Date().toDateInputValue();
             </script>
-                            
+           <%}%>         
     </body>
 </html>

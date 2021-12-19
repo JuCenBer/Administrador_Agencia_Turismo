@@ -167,7 +167,10 @@ public class ControladoraPersistencia {
 
     
 
-    
+    //USUARIOS
+    public List<Usuario> traerUsuarios(){
+        return usuJPA.findUsuarioEntities();
+    }
 
     
     

@@ -16,6 +16,16 @@
 	<link rel="stylesheet" href="css/tooplate-style.css">
     </head>
     <body style="background-color:grey;">
+        <%
+        HttpSession misesion = request.getSession();
+        String usuario = (String) misesion.getAttribute("usuario");
+        String contrasenia = (String) misesion.getAttribute("contrasenia");
+        int idEmpleado = (Integer) misesion.getAttribute("idEmpleado");
+            if(usuario == null){
+                response.sendRedirect("login.jsp");
+            }
+            else{
+        %>
         <div class="container">
             <div class="table-responsive custom-table-responsive tm-bg-transparent-black">
 
@@ -37,7 +47,7 @@
                         </tr>
                   </thead>
                   <tbody>
-                        <% HttpSession misesion = request.getSession() ;
+                        <%
                         List <Empleado> listaEmpleados = (List) request.getSession().getAttribute("listaEmpleados");
                         for (Empleado emple: listaEmpleados){
                             if (emple.isHabilitado()) {
@@ -80,6 +90,6 @@
                 </table>
             </div>
             </div>
-            
+            <%}%>
     </body>
 </html>
