@@ -53,41 +53,22 @@ public class SvAltaVentaPaquete extends HttpServlet {
             throws ServletException, IOException {
         Cliente cli = new Cliente();
         List<Cliente> listaClientes = control.traerClientes();
-        for (int i = 0; i < (listaClientes.size()); i++) {
-            if(listaClientes.get(i).isHabilitado()){
-                int id = 0;
-                try{
-                    id = Integer.parseInt(request.getParameter("Clicheckbox"+String.valueOf(i)));
-                }
-                catch(Exception ex){
+        int id = 0;
+        id = Integer.parseInt(request.getParameter("Clicheckbox"));
+        if (id != 0) {
+            cli = control.buscarCliente(id);
+        }
 
-                }
-                System.out.println(i);
-                if (id != 0) {
-                   cli = control.buscarCliente(id);
-                }
-            }
-        } 
-        
         double costo = 0;
         Paquete paq = new Paquete();
         List<Paquete> listaPaquetes = control.traerPaquetes();
-        for (int i = 0; i < (listaPaquetes.size()); i++) {
-            if(listaPaquetes.get(i).isHabilitado()){
-
-                int id = 0;
-                try{
-                    id = Integer.parseInt(request.getParameter("Paqcheckbox"+String.valueOf(i)));
-                }
-                catch(Exception ex){
-
-                }
-                if (id != 0) {
-                   paq = control.buscarPaquete(id);
-                   costo += paq.getCosto_paquete();
-                }
-            }
+        id = 0;    
+        id = Integer.parseInt(request.getParameter("Paqcheckbox"));
+        if (id != 0) {
+            paq = control.buscarPaquete(id);
+            costo += paq.getCosto_paquete();
         }
+
         String medioPago = request.getParameter("medio_pago");
         System.out.println("el medio de pago es " + medioPago);
         switch(medioPago){

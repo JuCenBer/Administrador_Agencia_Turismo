@@ -62,7 +62,7 @@
                         %>
                         <tr>
                             <% int ID = cli.getId_cliente();%>
-                            <td><input name="Clicheckbox<%=j%>" type="radio" value="<%=ID%>"></td>
+                            <td><input name="Clicheckbox" type="radio" value="<%=ID%>"></td>
                             <%String nombre = cli.getNombre() + " " + cli.getApellido();%>
                             <td> <%=nombre%> </td>
                             <td> <%=ID%></td>

@@ -172,6 +172,14 @@ public class ControladoraPersistencia {
         return usuJPA.findUsuarioEntities();
     }
 
+    public void modificarUsuario(Usuario usu) {
+        try {
+            usuJPA.edit(usu);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     
     
 

@@ -15,6 +15,7 @@ import logica.Paquete;
 import logica.Venta;
 import persistencia.exceptions.NonexistentEntityException;
 
+
 public class PaqueteJpaController implements Serializable {
 
     public PaqueteJpaController(EntityManagerFactory emf) {

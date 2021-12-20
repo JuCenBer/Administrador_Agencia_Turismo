@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.Controladora;
 import logica.Empleado;
+import logica.Usuario;
 
 @WebServlet(name = "SvEliminarEmpleado", urlPatterns = {"/SvEliminarEmpleado"})
 public class SvEliminarEmpleado extends HttpServlet {
@@ -44,8 +45,11 @@ public class SvEliminarEmpleado extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Controladora control = new Controladora();
         Empleado emple = control.buscarEmpleado(id);
+        Usuario usu = emple.getUsu();
+        usu.setHabilitado(false);
         emple.setHabilitado(false);
         control.modificarEmpleado(emple);
+        control.modificarUsuario(usu);
         request.getSession().setAttribute("listaEmpleados", control.traerEmpleados());
         response.sendRedirect("listadoEmpleados.jsp");
     }

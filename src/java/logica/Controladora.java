@@ -151,6 +151,10 @@ public class Controladora {
         } 
         return false;
     }
+
+    public void modificarUsuario(Usuario usu) {
+        controlPersis.modificarUsuario(usu);
+    }
     
 
     

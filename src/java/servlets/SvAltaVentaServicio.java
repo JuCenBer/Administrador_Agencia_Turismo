@@ -54,21 +54,12 @@ public class SvAltaVentaServicio extends HttpServlet {
             throws ServletException, IOException {
         Cliente cli = new Cliente();
         List<Cliente> listaClientes = control.traerClientes();
-        for (int i = 0; i < (listaClientes.size()); i++) {
-            if(listaClientes.get(i).isHabilitado()){
-                int id = 0;
-                try{
-                    id = Integer.parseInt(request.getParameter("Clicheckbox"+String.valueOf(i)));
-                }
-                catch(Exception ex){
-
-                }
-                System.out.println(i);
-                if (id != 0) {
-                   cli = control.buscarCliente(id);
-                }
-            }
-        } 
+        int id = 0;
+        id = Integer.parseInt(request.getParameter("Clicheckbox"));
+        if (id != 0) {
+        cli = control.buscarCliente(id);     
+        }   
+    
         
         double costo = 0;
         Servicio ser = new Servicio();
@@ -77,7 +68,7 @@ public class SvAltaVentaServicio extends HttpServlet {
         for (int i = 0; i < (listaServicios.size()); i++) {
             if(listaServicios.get(i).isHabilitado()){
 
-                int id = 0;
+                id = 0;
                 try{
                     id = Integer.parseInt(request.getParameter("Sercheckbox"+String.valueOf(i)));
                 }

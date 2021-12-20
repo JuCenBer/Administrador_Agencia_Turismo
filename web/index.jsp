@@ -120,15 +120,15 @@
 							<header class="col-xl-12"><h2 class="tm-text-shadow">Empleados</h2></header>		
 						</div>
 						<div class="row">
-							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto; width: 50vw;">
 								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fab fa-address-card tm-icon-circled tm-icon-media"></i>
+									<i class="fas fa-user-plus tm-icon-circled tm-icon-media"></i>
 									<div class="media-body">
                                                                             <a class="btn tm-btn-submit tm-btn ml-auto" href="crearEmpleado.jsp">Alta</a>
 									</div>
 								</div>
 							</div>	
-                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
+                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto; width: 50vw;">
 								<div class="media tm-bg-transparent-black tm-border-white">
 									<i class="fas fa-list mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
@@ -147,15 +147,15 @@
 							<header class="col-xl-12"><h2 class="tm-text-shadow">Clientes</h2></header>		
 						</div>
 						<div class="row">
-							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto; width: 50vw;">
 								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fab fa-apple tm-icon-circled tm-icon-media"></i>
+									<i class="fas fa-user-plus tm-icon-circled tm-icon-media"></i>
 									<div class="media-body">
                                                                             <a class="btn tm-btn-submit tm-btn ml-auto" href="crearCliente.jsp">Alta</a>
 									</div>
 								</div>
 							</div>	
-                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
+                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto; width: 50vw;">
 								<div class="media tm-bg-transparent-black tm-border-white">
 									<i class="fas fa-list  mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
@@ -178,7 +178,7 @@
 		
                                                             <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
 								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fab fa-apple tm-icon-circled tm-icon-media"></i>
+                                                                        <i class="far fa-plus-square tm-icon-circled tm-icon-media"></i>
 									<div class="media-body">
                                                                             <form action="SvAltaVentaServicio" method="get">
                                                                                 <a class="btn tm-btn-submit tm-btn ml-auto" href="SvAltaVentaServicio">Vender servicios</a>
@@ -188,7 +188,7 @@
                                                             </div>	
 							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
 								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<i class="far fa-plus-square tm-icon-circled tm-icon-media"></i>
 									<div class="media-body">
                                                                             <form action="SvAltaVentaServicio" method="get">
 										<a class="btn tm-btn-submit tm-btn ml-auto" href="SvAltaVentaPaquete">Vender paquete</a>
@@ -213,15 +213,15 @@
 							<header class="col-xl-12"><h2 class="tm-text-shadow">Servicios</h2></header>		
 						</div>
 						<div class="row">
-							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto; width: 50vw;">
 								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fab fa-apple tm-icon-circled tm-icon-media"></i>
+									<i class="far fa-plus-square tm-icon-circled tm-icon-media"></i>
 									<div class="media-body">
                                                                             <a class="btn tm-btn-submit tm-btn ml-auto" href="crearServicio.jsp">Alta</a>
 									</div>
 								</div>
 							</div>	  
-                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
+                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto; width: 50vw;"">
 								<div class="media tm-bg-transparent-black tm-border-white">
 									<i class="fas fa-list  mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
@@ -238,15 +238,15 @@
 							<header class="col-xl-12"><h2 class="tm-text-shadow">Paquetes</h2></header>		
 						</div>
 						<div class="row">
-							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
-								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fab fa-apple tm-icon-circled tm-icon-media"></i>
+							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="width: 50vw;">
+								<div class="media tm-bg-transparent-black tm-border-white" >
+									<i class="far fa-plus-square tm-icon-circled tm-icon-media"></i>
 									<div class="media-body">
                                                                             <a class="btn tm-btn-submit tm-btn ml-auto" href="SvConsultaServiciosPaquetes">Alta</a>
 									</div>
 								</div>
 							</div>	
-                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
+                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto; width: 50vw;" >
 								<div class="media tm-bg-transparent-black tm-border-white">
 									<i class="fas fa-list  mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">

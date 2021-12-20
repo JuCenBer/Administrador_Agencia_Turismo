@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 public class Venta implements Serializable {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int num_venta;
     
     @Basic

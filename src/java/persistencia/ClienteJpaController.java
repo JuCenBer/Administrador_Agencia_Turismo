@@ -1,3 +1,4 @@
+
 package persistencia;
 
 import java.io.Serializable;
@@ -13,6 +14,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import logica.Cliente;
 import persistencia.exceptions.NonexistentEntityException;
+
 
 public class ClienteJpaController implements Serializable {
 

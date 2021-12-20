@@ -62,7 +62,7 @@
                         %>
                         <tr>
                             <% int ID = cli.getId_cliente();%>
-                            <td><input name="Clicheckbox<%=j%>" type="radio" value="<%=ID%>"></td>
+                            <td><input name="Clicheckbox" type="radio" value="<%=ID%>"></td>
                             <%String nombre = cli.getNombre() + " " + cli.getApellido();%>
                             <td> <%=nombre%> </td>
                             <td> <%=ID%></td>
@@ -100,7 +100,7 @@
                         %>
                         <tr>
                             <% int IDPaq = paq.getIdPaquete();%>
-                            <td><input type="radio" name="Paqcheckbox<%=i%>" value="<%=IDPaq%>"></td>
+                            <td><input type="radio" name="Paqcheckbox" value="<%=IDPaq%>"></td>
                             <td> <%=IDPaq%></td>
                             <%  List <Servicio> listaServicios = paq.getLista_servicios_incluidos();
                                 String nombre = " ";

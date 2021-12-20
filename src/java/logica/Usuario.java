@@ -16,7 +16,15 @@ public class Usuario implements Serializable {
     @Basic
     private String nombreUsu;
     private String contrasenia;
+    private boolean habilitado = true;
 
+    public boolean isHabilitado() {
+        return habilitado;
+    }
+
+    public void setHabilitado(boolean habilitado) {
+        this.habilitado = habilitado;
+    }
     public Usuario() {
     }
 
