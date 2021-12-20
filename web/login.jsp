@@ -38,7 +38,7 @@
                         <div class="media-body" style="max-width: 35vw;">
                             <form name="formSvIniciarSesion" action="SvIniciarSesion" method="post">
                                 <input type="text" name="usuario" class="form-control" placeholder="Nombre de usuario"></input>
-                                <input type="text" name="contrasenia" class="form-control" placeholder="Contraseña" style="margin-top:3vh;"></input>
+                                <input type="password" name="contrasenia" class="form-control" placeholder="Contraseña" style="margin-top:3vh;"></input>
                                 <button type="submit" class="btn tm-btn-submit tm-btn ml-auto" href="SvIniciarSesion" style="margin-top:3vh;">Login</button>
                             </form>
                         </div>

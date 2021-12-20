@@ -62,7 +62,7 @@
                         %>
                         <tr>
                             <% int ID = cli.getId_cliente();%>
-                            <td><input name="Clicheckbox<%=j%>" type="checkbox"  class="check" value="<%=ID%>"></td>
+                            <td><input name="Clicheckbox<%=j%>" type="radio" value="<%=ID%>"></td>
                             <%String nombre = cli.getNombre() + " " + cli.getApellido();%>
                             <td> <%=nombre%> </td>
                             <td> <%=ID%></td>
@@ -83,7 +83,8 @@
                         <%}}%>
                 </table>
                 <header class="col-xl-12"><h2 class="tm-text-shadow">Seleccione los servicios a vender</h2></header>
-                <table class="table custom-table">
+                <input type="text" class="form-control" id="myInput1" onkeyup="myFunction1()" placeholder="Buscar por nombre de servicio">
+                <table class="table custom-table" id="myTable1">
                   <thead>
                         <tr> 
                             <th scope="col"></th>
@@ -104,7 +105,7 @@
                         <tr>
                             <% double costo_servicio = ser.getCosto_servicio();%>
                             <% int ID = ser.getCodigo_servicio();%>
-                            <td><input name="Sercheckbox<%=i%>" type="checkbox" class="check1" value="<%=ID%>"></td>
+                            <td><input name="Sercheckbox<%=i%>" type="checkbox" value="<%=ID%>"></td>
                             <%String nombre = ser.getNombre();%>
                             <td> <%=nombre%> </td>
                             <td> <%=ID%></td>
@@ -112,7 +113,7 @@
                             <td> <%=descripcion_breve%></td>
                             <% String destino_servicio = ser.getDestino_servicio();%>
                             <td> <%=destino_servicio%></td>
-                            <% Date fecha_servicio= ser.getFecha_servicio();%>
+                            <% String fecha_servicio= sdf.format(ser.getFecha_servicio());%>
                             <td> <%=fecha_servicio%></td>
                             <td> <%=costo_servicio%></td>
                         </tr>
@@ -122,7 +123,7 @@
                 <h2 class="tm-text-shadow">Seleccione el metodo de pago</h2>
                 <ul>
                     <li><label for="Efectivo"><input type="radio" value="Efectivo" name="medio_pago" checked>   Efectivo</label></li>
-                    <li><label for="Tarjeta de Debito (3% comision)"><input value="Tarjeta de Debito" type="radio" name="medio_pago">   Tarjeta de Debito (3% comision </label></li>
+                    <li><label for="Tarjeta de Debito (3% comision)"><input value="Tarjeta de Debito" type="radio" name="medio_pago">   Tarjeta de Debito (3% comision) </label></li>
                     <li><label for="Tarjeta de Credito (9% comision)"><input  value="Tarjeta de Credito" type="radio" name="medio_pago">    Tarjeta de Credito (9% comision)</label></li>
                     <li><label for="Monedero Virtual"><input " type="radio" value="Monedero Virtual" name="medio_pago"> Monedero Virtual</label></li>
                     <li><label for="Transferencia (2.45% comision)"><input value="Transferencia" type="radio" name="medio_pago">    Transferencia (2.45% comision)</label></li>
@@ -131,26 +132,8 @@
                 </form>
             </div>  
             </div>
-            <script>
-                var checks = document.querySelectorAll(".check");
-                var max = 1;
-                for (var i = 0; i < checks.length; i++)
-                  checks[i].onclick = selectiveCheck;
-                function selectiveCheck (event) {
-                  var checkedChecks = document.querySelectorAll(".check:checked");
-                  if (checkedChecks.length >= max + 1)
-                    return false;
-                }
+            <script>       
                 
-                var checks1 = document.querySelectorAll(".check1");
-                var max1 = 1;
-                for (var i = 0; i < checks1.length; i++)
-                  checks1[i].onclick = selectiveCheck;
-                function selectiveCheck1 (event) {
-                  var checkedChecks1 = document.querySelectorAll(".check1:checked");
-                  if (checkedChecks1.length >= max + 1)
-                    return false;
-                }
                 
                 function myFunction() {
                   // Declare variables
@@ -174,7 +157,27 @@
                   }
                 }
                 
-                
+                function myFunction1() {
+                  // Declare variables
+                  var input, filter, table, tr, td, i, txtValue;
+                  input = document.getElementById("myInput1");
+                  filter = input.value.toUpperCase();
+                  table = document.getElementById("myTable1");
+                  tr = table.getElementsByTagName("tr");
+
+                  // Loop through all table rows, and hide those who don't match the search query
+                  for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                      txtValue = td.textContent || td.innerText;
+                      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                      } else {
+                        tr[i].style.display = "none";
+                      }
+                    }
+                  }
+                }
         </script>      
         <%}%>
     </body>

@@ -62,7 +62,7 @@
                         %>
                         <tr>
                             <% int ID = cli.getId_cliente();%>
-                            <td><input name="Clicheckbox<%=j%>" class="check" type="checkbox" value="<%=ID%>"></td>
+                            <td><input name="Clicheckbox<%=j%>" type="radio" value="<%=ID%>"></td>
                             <%String nombre = cli.getNombre() + " " + cli.getApellido();%>
                             <td> <%=nombre%> </td>
                             <td> <%=ID%></td>
@@ -100,7 +100,7 @@
                         %>
                         <tr>
                             <% int IDPaq = paq.getIdPaquete();%>
-                            <td><input name="Paqcheckbox<%=i%>" type="checkbox" class="check1" value="<%=IDPaq%>"></td>
+                            <td><input type="radio" name="Paqcheckbox<%=i%>" value="<%=IDPaq%>"></td>
                             <td> <%=IDPaq%></td>
                             <%  List <Servicio> listaServicios = paq.getLista_servicios_incluidos();
                                 String nombre = " ";
@@ -111,14 +111,14 @@
                             <% double costo_paquete =paq.getCosto_paquete();%>
                             <td><%=costo_paquete%></td>
                         </tr>
-                        <%i++; }}%>
+                        <%}}%>
                   </tbody> 
                 </table>
                 <hr style="color: white;">
                 <header class="col-xl-12"><h2 class="tm-text-shadow">Seleccione el metodo de pago</h2></header>
                 <ul>
                     <li><label for="Efectivo"><input type="radio" value="Efectivo" name="medio_pago" checked>   Efectivo</label></li>
-                    <li><label for="Tarjeta de Debito (3% comision)"><input value="Tarjeta de Debito" type="radio" name="medio_pago">   Tarjeta de Debito (3% comision </label></li>
+                    <li><label for="Tarjeta de Debito (3% comision)"><input value="Tarjeta de Debito" type="radio" name="medio_pago">   Tarjeta de Debito (3% comision) </label></li>
                     <li><label for="Tarjeta de Credito (9% comision)"><input  value="Tarjeta de Credito" type="radio" name="medio_pago">    Tarjeta de Credito (9% comision)</label></li>
                     <li><label for="Monedero Virtual"><input " type="radio" value="Monedero Virtual" name="medio_pago"> Monedero Virtual</label></li>
                     <li><label for="Transferencia (2.45% comision)"><input value="Transferencia" type="radio" name="medio_pago">    Transferencia (2.45% comision)</label></li>
@@ -127,27 +127,7 @@
                 </form>
             </div>  
             </div>
-            <script>
-                var checks = document.querySelectorAll(".check");
-                var max = 1;
-                for (var i = 0; i < checks.length; i++)
-                  checks[i].onclick = selectiveCheck;
-                function selectiveCheck (event) {
-                  var checkedChecks = document.querySelectorAll(".check:checked");
-                  if (checkedChecks.length >= max + 1)
-                    return false;
-                }
-                
-                var checks1 = document.querySelectorAll(".check1");
-                var max1 = 1;
-                for (var i = 0; i < checks1.length; i++)
-                  checks1[i].onclick = selectiveCheck;
-                function selectiveCheck (event) {
-                  var checkedChecks1 = document.querySelectorAll(".check1:checked");
-                  if (checkedChecks1.length >= max + 1)
-                    return false;
-                }
-                
+            <script>      
                 function myFunction() {
                   // Declare variables
                   var input, filter, table, tr, td, i, txtValue;
@@ -168,7 +148,7 @@
                       }
                     }
                   }
-                }     
+                }
         </script>    
         <%}%>
     </body>

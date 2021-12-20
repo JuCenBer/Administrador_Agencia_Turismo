@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="logica.Empleado"%>
 <%@page import="java.util.List"%>
@@ -71,7 +72,8 @@
                             <td> <%=nacionalidad%></td>
                             <% String direccion = emple.getDireccion();%>
                             <td> <%=direccion%></td>
-                            <% Date fecha_nac = emple.getFecha_nac();%>
+                            <% SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                                String fecha_nac = sdf.format(emple.getFecha_nac());%>
                             <td> <%=fecha_nac%></td>
                             <td>
                                 <form name="formBorrarEmpleado" action="SvEliminarEmpleado" method="post">

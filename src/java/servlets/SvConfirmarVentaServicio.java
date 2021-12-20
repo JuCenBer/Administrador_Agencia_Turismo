@@ -57,7 +57,7 @@ public class SvConfirmarVentaServicio extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("idCliente"));
         Cliente cli = control.buscarCliente(id);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        double costo = Double.parseDouble(request.getParameter("costo"));
+        double costo;
         String metodoPago = request.getParameter("medioPago");
         int idEmpleado = Integer.parseInt(request.getParameter("idEmpleado"));
         Empleado emple = control.buscarEmpleado(idEmpleado);
@@ -77,6 +77,16 @@ public class SvConfirmarVentaServicio extends HttpServlet {
                 if (id != 0) {
                    Venta ven = new Venta();
                    ser = control.buscarServicio(id);
+                   costo = ser.getCosto_servicio();
+                   switch(metodoPago){
+                        case "Tarjeta de Debito": costo+= costo*0.03;
+                                                                break;
+                        case "Tarjeta de Credito": costo+= costo*0.09;
+                                                                 break;
+                        case "Transferencia": costo+= costo*0.0245;
+                                                                break;
+                        default: break;
+                    }
                    ven.setCosto(costo);
                    ven.setCli(cli);
                    ven.setMedio_pago(metodoPago);

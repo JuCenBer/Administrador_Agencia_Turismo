@@ -77,11 +77,8 @@
                 <table class="table custom-table">
                   <thead>
                         <tr>  
-                            <th scope="col">Nombre</th>
                             <th scope="col">ID</th>
-                            <th scope="col">Descripcion</th>
-                            <th scope="col">Destino</th>
-                            <th scope="col">Fecha</th>
+                            <th scope="col">Servicios Incluidos</th>
                             <th scope="col">Costo</th>
                         </tr>
                   </thead>

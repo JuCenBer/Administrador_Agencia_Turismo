@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="logica.Servicio"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -48,7 +49,9 @@
                                     <input type="text" name="destino_servicio" class="form-control" placeholder="Destino" required value="<%=ser.getDestino_servicio()%>">
 				</div>
                                 <div class="form-group">
-					<input type="date" name="fecha_servicio" class="form-control" placeholder="Fecha" required value="<%=ser.getFecha_servicio()%>">
+                                        <%SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                                        String fecha = sdf.format(ser.getFecha_servicio());%>
+					<input type="date" name="fecha_servicio" class="form-control" placeholder="Fecha" required value="<%=fecha%>">
 				</div>
                                 <div class="form-group">
                                     <input type="text" name="costo_servicio" class="form-control" placeholder="Costo" required value="<%=ser.getCosto_servicio()%>">

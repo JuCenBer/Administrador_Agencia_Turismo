@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="logica.Paquete"%>
 <%@page import="java.util.Date"%>
 <%@page import="logica.Servicio"%>
@@ -37,7 +38,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Descripcion</th>
                             <th scope="col">Destino</th>
-                            <th scope="col">Fecha</th>
+                            <th scope="col">Fecha del servicio</th>
                             <th scope="col">Costo</th>
                             <th scope="col">Paquetes asociados</th>
                             <th scope="col"></th>
@@ -59,8 +60,9 @@
                             <td> <%=descripcion_breve%></td>
                             <% String destino_servicio = ser.getDestino_servicio();%>
                             <td> <%=destino_servicio%></td>
-                            <% Date fecha_servicio= ser.getFecha_servicio();%>
-                            <td> <%=fecha_servicio%></td>
+                            <% SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                                String fecha = sdf.format(ser.getFecha_servicio());%>
+                            <td> <%=fecha%></td>
                             <% double costo_servicio = ser.getCosto_servicio();%>
                             <td> <%=costo_servicio%></td>
                             <%  List <Paquete> listaPaquetes = ser.getLista_paquetes();

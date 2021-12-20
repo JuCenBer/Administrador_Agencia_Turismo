@@ -30,13 +30,37 @@
             else{
         %>
         <div class="container">
+            	
             <div class="table-responsive custom-table-responsive tm-bg-transparent-black">
-
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+                            <div class="media tm-bg-transparent-black tm-border-white">
+                                <i class="fas fa-list mr-4 tm-icon-circled tm-icon-media"></i>
+                                <div class="media-body">
+                                    <form action="SvConsultarRecaudaciones" method="GET">
+                                        <button type="submit" class="btn tm-btn-submit tm-btn ml-auto" href="SvConsultarRecaudaciones">Recaudacion mensual</button>
+                                    </form>
+                                </div>
+                            </div>
+                    </div>	
+                    <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+                            <div class="media tm-bg-transparent-black tm-border-white">	
+                                <i class="fas fa-list mr-4 tm-icon-circled tm-icon-media"></i>
+                                <div class="media-body">
+                                    <form action="SvConsultarRecaudaciones" method="POST">
+                                        <button type="submit" class="btn tm-btn-submit tm-btn ml-auto" href="SvConsultarRecaudaciones">Recaudacion diaria</button>
+                                    </form>										
+                                </div>
+                            </div>
+                    </div>    
+                </div>
                 <table class="table custom-table">
                   <thead>
                         <tr>  
                             <th scope="col">ID</th>
                             <th scope="col">Fecha de Venta</th>
+                            <th scope="col">ID Empleado</th>
+                            <th scope="col">ID Cliente</th>
                             <th scope="col">Servicios Incluidos</th>
                             <th scope="col">Metodo de pago</th>
                             <th scope="col">Costo</th>
@@ -80,7 +104,10 @@
                                
                                   
                                 %>
+                            <td><%=ven.getEmple().getId_empleado()%></td>
+                            <td><%=ven.getCli().getId_cliente()%></td>
                             <td><%=serviciosVendidos%></td>
+                            
                             <td><%=ven.getMedio_pago()%></td>
                             <td><%=ven.getCosto()%></td>
                             <td>

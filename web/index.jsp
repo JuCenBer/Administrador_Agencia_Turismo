@@ -99,12 +99,6 @@
 									<span>Paquetes</span>
 								</a>
 							</li>
-                                                        <li>
-								<a href="#recaudaciones" class="scrolly" data-bg-img="constructive_bg_04.jpg" data-page="#tm-section-7">
-									<i class="fas fa-comments tm-nav-fa-icon"></i>
-									<span>Recaudaciones</span>
-								</a>
-							</li>
 						</ul>
 					</nav>
 				</div>
@@ -116,9 +110,7 @@
 					<section id="tm-section-1" class="tm-section">
 						<div class="ml-auto">
 							<header class="mb-4"><h1 class="tm-text-shadow">Panel de Control</h1></header>
-							<p class="mb-5 tm-font-big">UWU</p>
-							<a href="#" class="btn tm-btn tm-font-big" data-nav-link="#tmNavLink2">Iniciar Sesión</a> 
-							<!-- data-nav-link holds the ID of nav item, which means this link should behave the same as that nav item  -->
+							<p class="mb-5 tm-font-big">Bienvenido al panel de control de la agencia</p>
 						</div>
 					</section>
 
@@ -130,23 +122,15 @@
 						<div class="row">
 							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
 								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fab fa-apple tm-icon-circled tm-icon-media"></i>
+									<i class="fab fa-address-card tm-icon-circled tm-icon-media"></i>
 									<div class="media-body">
                                                                             <a class="btn tm-btn-submit tm-btn ml-auto" href="crearEmpleado.jsp">Alta</a>
 									</div>
 								</div>
 							</div>	
-							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
-								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
-									<div class="media-body">
-										<a class="btn tm-btn-submit tm-btn ml-auto" href="buscarEmpleado.jsp">Buscar</a>										
-									</div>
-                                                                </div>
-							</div>    
                                                         <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
 								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<i class="fas fa-list mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
                                                                             <form action="SvConsultaEmpleados" method="GET">
 										<a class="btn tm-btn-submit tm-btn ml-auto SUBMIT" href="SvConsultaEmpleados">Listado</a>
@@ -171,17 +155,9 @@
 									</div>
 								</div>
 							</div>	
-							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
-								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
-									<div class="media-body">
-										<a class="btn tm-btn-submit tm-btn ml-auto" href="buscarCliente.jsp">Buscar</a>										
-									</div>
-                                                                </div>
-							</div>    
                                                         <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
 								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<i class="fas fa-list  mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
                                                                             <form action="SvConsultaClientes" method="GET">
 										<a class="btn tm-btn-submit tm-btn ml-auto SUBMIT" href="SvConsultaClientes">Listado</a>
@@ -195,7 +171,7 @@
 					<!-- section 4 -->
 					<section id="tm-section-4" class="tm-section">
                                             <div class="row mb-4">
-							<header class="col-xl-12" style="margin: auto;"><h2 class="tm-text-shadow">¿Qué desea vender?</h2></header>		
+							<header class="col-xl-12" style="margin: auto;"><h2 class="tm-text-shadow">Ventas</h2></header>		
 						</div>
                                                 
 						<div class="row">
@@ -205,7 +181,7 @@
 									<i class="fab fa-apple tm-icon-circled tm-icon-media"></i>
 									<div class="media-body">
                                                                             <form action="SvAltaVentaServicio" method="get">
-                                                                                <a class="btn tm-btn-submit tm-btn ml-auto" href="SvAltaVentaServicio">Servicios</a>
+                                                                                <a class="btn tm-btn-submit tm-btn ml-auto" href="SvAltaVentaServicio">Vender servicios</a>
                                                                             </form>
 									</div>
 								</div>
@@ -215,14 +191,14 @@
 									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
                                                                             <form action="SvAltaVentaServicio" method="get">
-										<a class="btn tm-btn-submit tm-btn ml-auto" href="SvAltaVentaPaquete">Paquete</a>
+										<a class="btn tm-btn-submit tm-btn ml-auto" href="SvAltaVentaPaquete">Vender paquete</a>
                                                                             </form>										
 									</div>
                                                                 </div>
 							</div>
                                                         <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
 								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<i class="fas fa-list  mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
                                                                             <form action="SvConsultaVentas" method="get">
 										<a class="btn tm-btn-submit tm-btn ml-auto SUBMIT" href="SvConsultaVentas">Listado</a>
@@ -244,18 +220,10 @@
                                                                             <a class="btn tm-btn-submit tm-btn ml-auto" href="crearServicio.jsp">Alta</a>
 									</div>
 								</div>
-							</div>	
-							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
-								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
-									<div class="media-body">
-										<a class="btn tm-btn-submit tm-btn ml-auto" href="buscarServicio.jsp">Buscar</a>										
-									</div>
-                                                                </div>
-							</div>    
+							</div>	  
                                                         <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
 								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<i class="fas fa-list  mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
                                                                             <form action="SvConsultaServicios" method="get">
 										<a class="btn tm-btn-submit tm-btn ml-auto SUBMIT" href="SvConsultaServicios">Listado</a>
@@ -278,17 +246,9 @@
 									</div>
 								</div>
 							</div>	
-							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
-								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
-									<div class="media-body">
-										<a class="btn tm-btn-submit tm-btn ml-auto" href="buscarServicio.jsp">Buscar</a>										
-									</div>
-                                                                </div>
-							</div>    
                                                         <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4" style="margin: auto;">
 								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
+									<i class="fas fa-list  mr-4 tm-icon-circled tm-icon-media"></i>	
 									<div class="media-body">
                                                                             <form action="SvConsultaPaquetes" method="GET">
 										<a class="btn tm-btn-submit tm-btn ml-auto SUBMIT" href="SvConsultaPaquetes">Listado</a>
@@ -296,29 +256,6 @@
 									</div>
                                                                 </div>
 							</div>
-                                                      </div>							               
-					</section>
-                                        <section id="tm-section-7" class="tm-section">						
-						<div class="row mb-4">
-							<header class="col-xl-12"><h2 class="tm-text-shadow">Recaudaciones</h2></header>		
-						</div>
-						<div class="row">
-							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
-								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fab fa-apple tm-icon-circled tm-icon-media"></i>
-									<div class="media-body">
-                                                                            <a class="btn tm-btn-submit tm-btn ml-auto" href="SvConsultaRecaudaciones">Ver recaudaciones por mes</a>
-									</div>
-								</div>
-							</div>	
-							<div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
-								<div class="media tm-bg-transparent-black tm-border-white">
-									<i class="fas fa-map-pin mr-4 tm-icon-circled tm-icon-media"></i>	
-									<div class="media-body">
-										<a class="btn tm-btn-submit tm-btn ml-auto" href="buscarServicio.jsp">Ver recaudacion por dia</a>										
-									</div>
-                                                                </div>
-							</div>    
                                                       </div>							               
 					</section>
 				</div>	<!-- .tm-content -->							
