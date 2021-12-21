@@ -65,11 +65,12 @@ public class SvConfirmarVentaServicio extends HttpServlet {
         List<Servicio> listaServicios = control.traerServicios();
         LocalDateTime now = LocalDateTime.now(); 
         String aux = String.valueOf(now);
+        int j=0;
         for (int i = 0; i < (listaServicios.size()); i++) {
             id = 0;
             if(listaServicios.get(i).isHabilitado()){
                 try{
-                    id = Integer.parseInt(request.getParameter("idServicio"+String.valueOf(i)));
+                    id = Integer.parseInt(request.getParameter("idServicio"+String.valueOf(j)));
                 }
                 catch(Exception ex){
 
@@ -99,6 +100,7 @@ public class SvConfirmarVentaServicio extends HttpServlet {
                     }
                    control.crearVenta(ven);
                 }
+                j++;
             }
         }
         
