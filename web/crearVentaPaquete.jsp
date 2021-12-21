@@ -35,7 +35,7 @@
         <div class="container">
             <div class="table-responsive custom-table-responsive tm-bg-transparent-black">
                 <header class="col-xl-12"><h2 class="tm-text-shadow">Seleccione el cliente</h2></header>
-                <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Buscar por DNI">
+                <input type="text"  id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Buscar por DNI">
                 <form name="formCrearVentaPaquete" action="SvAltaVentaPaquete" method="post">
                  <table class="table custom-table" id="myTable">
                   <thead>
@@ -83,7 +83,8 @@
                         <%}}%>
                 </table>
                 <header class="col-xl-12"><h2 class="tm-text-shadow">Seleccione el paquete a vender</h2></header>
-                <table class="table custom-table">
+                <input type="text" id="myInput1" class="form-control" onkeyup="myFunction1()" placeholder="Buscar por servicio">
+                <table class="table custom-table" id="myTable1">
                   <thead>
                         <tr> 
                             <th scope="col"></th>
@@ -139,6 +140,28 @@
                   // Loop through all table rows, and hide those who don't match the search query
                   for (i = 0; i < tr.length; i++) {
                     td = tr[i].getElementsByTagName("td")[3];
+                    if (td) {
+                      txtValue = td.textContent || td.innerText;
+                      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                      } else {
+                        tr[i].style.display = "none";
+                      }
+                    }
+                  }
+                }
+                
+                function myFunction1() {
+                  // Declare variables
+                  var input, filter, table, tr, td, i, txtValue;
+                  input = document.getElementById("myInput1");
+                  filter = input.value.toUpperCase();
+                  table = document.getElementById("myTable1");
+                  tr = table.getElementsByTagName("tr");
+
+                  // Loop through all table rows, and hide those who don't match the search query
+                  for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[2];
                     if (td) {
                       txtValue = td.textContent || td.innerText;
                       if (txtValue.toUpperCase().indexOf(filter) > -1) {

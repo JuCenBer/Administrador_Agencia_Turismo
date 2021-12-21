@@ -111,6 +111,12 @@
 						<div class="ml-auto">
 							<header class="mb-4"><h1 class="tm-text-shadow">Panel de Control</h1></header>
 							<p class="mb-5 tm-font-big">Bienvenido al panel de control de la agencia</p>
+                                                        <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6 mb-4">
+                                                            <form action="SvEliminarSesion" method="post">
+                                                                <button class="btn tm-btn-submit tm-btn ml-auto" href="SvEliminarSesion">Cerrar sesión</button>
+                                                            </form>
+                                                        </div>
+                                                        
 						</div>
 					</section>
 

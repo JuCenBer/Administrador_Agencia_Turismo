@@ -54,38 +54,50 @@ public class SvAltaVentaPaquete extends HttpServlet {
         Cliente cli = new Cliente();
         List<Cliente> listaClientes = control.traerClientes();
         int id = 0;
-        id = Integer.parseInt(request.getParameter("Clicheckbox"));
-        if (id != 0) {
-            cli = control.buscarCliente(id);
+        if (request.getParameter("Clicheckbox") == null) {
+            response.sendRedirect("crearVentaPaquete.jsp");
         }
+        else{
+            
+            id = Integer.parseInt(request.getParameter("Clicheckbox"));
+        
+            if (id != 0) {
+                cli = control.buscarCliente(id);
+            }
 
-        double costo = 0;
-        Paquete paq = new Paquete();
-        List<Paquete> listaPaquetes = control.traerPaquetes();
-        id = 0;    
-        id = Integer.parseInt(request.getParameter("Paqcheckbox"));
-        if (id != 0) {
-            paq = control.buscarPaquete(id);
-            costo += paq.getCosto_paquete();
-        }
+            double costo = 0;
+            Paquete paq = new Paquete();
+            List<Paquete> listaPaquetes = control.traerPaquetes();
+            id = 0;   
+            if (request.getParameter("Paqcheckbox") == null) {
+                response.sendRedirect("crearVentaPaquete.jsp");
+            }else{
+                id = Integer.parseInt(request.getParameter("Paqcheckbox"));
+                if (id != 0) {
+                    paq = control.buscarPaquete(id);
+                    costo += paq.getCosto_paquete();
+                }
 
-        String medioPago = request.getParameter("medio_pago");
-        System.out.println("el medio de pago es " + medioPago);
-        switch(medioPago){
-            case "Tarjeta de Debito": costo+= costo*0.03;
-                                                    break;
-            case "Tarjeta de Credito": costo+= costo*0.09;
-                                                     break;
-            case "Transferencia": costo+= costo*0.0245;
-                                                    break;
-            default: break;
+                String medioPago = request.getParameter("medio_pago");
+                System.out.println("el medio de pago es " + medioPago);
+                switch(medioPago){
+                    case "Tarjeta de Debito": costo+= costo*0.03;
+                                                            break;
+                    case "Tarjeta de Credito": costo+= costo*0.09;
+                                                             break;
+                    case "Transferencia": costo+= costo*0.0245;
+                                                            break;
+                    default: break;
+                }
+                HttpSession misesion = request.getSession();
+                misesion.setAttribute("paq", paq);
+                misesion.setAttribute("cli", cli);
+                misesion.setAttribute("costo", costo);
+                misesion.setAttribute("medioPago", medioPago);
+                response.sendRedirect("confirmarVentaPaquete.jsp");
+                }
+
         }
-        HttpSession misesion = request.getSession();
-        misesion.setAttribute("paq", paq);
-        misesion.setAttribute("cli", cli);
-        misesion.setAttribute("costo", costo);
-        misesion.setAttribute("medioPago", medioPago);
-        response.sendRedirect("confirmarVentaPaquete.jsp");
     }
 
     

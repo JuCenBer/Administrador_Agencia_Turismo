@@ -54,51 +54,66 @@ public class SvAltaVentaServicio extends HttpServlet {
             throws ServletException, IOException {
         Cliente cli = new Cliente();
         List<Cliente> listaClientes = control.traerClientes();
+        boolean activado = false;
         int id = 0;
-        id = Integer.parseInt(request.getParameter("Clicheckbox"));
-        if (id != 0) {
-        cli = control.buscarCliente(id);     
-        }   
-    
-        
-        double costo = 0;
-        Servicio ser = new Servicio();
-        List<Servicio> listaServicios = control.traerServicios();
-        List<Servicio> listaServiciosSeleccionados = new ArrayList<Servicio>();
-        for (int i = 0; i < (listaServicios.size()); i++) {
-            if(listaServicios.get(i).isHabilitado()){
+        if (request.getParameter("Clicheckbox") == null) {
+            response.sendRedirect("crearVentaServicios.jsp");
+        }else{
+                id = Integer.parseInt(request.getParameter("Clicheckbox"));
+            if (id != 0) {
+            cli = control.buscarCliente(id);     
+            }   
 
-                id = 0;
-                try{
-                    id = Integer.parseInt(request.getParameter("Sercheckbox"+String.valueOf(i)));
-                }
-                catch(Exception ex){
 
-                }
-                if (id != 0) {
-                   ser = control.buscarServicio(id);
-                   costo += ser.getCosto_servicio();
-                   listaServiciosSeleccionados.add(ser);
+            double costo = 0;
+            Servicio ser = new Servicio();
+            List<Servicio> listaServicios = control.traerServicios();
+            List<Servicio> listaServiciosSeleccionados = new ArrayList<Servicio>();
+            int j = 0;
+            for (int i = 0; i < (listaServicios.size()); i++) {
+                
+                if(listaServicios.get(i).isHabilitado()){
+                    
+                    id = 0;
+                    try{
+                        id = Integer.parseInt(request.getParameter("Sercheckbox"+String.valueOf(j)));
+                    }
+                    catch(Exception ex){
+
+                    }
+                    if (id != 0) {
+                       activado = true;
+                       ser = control.buscarServicio(id);
+                       costo += ser.getCosto_servicio();
+                       listaServiciosSeleccionados.add(ser);
+                    }
+                    j++;
                 }
             }
+            if(activado == false){
+                response.sendRedirect("crearVentaServicios.jsp");
+            }else{
+                String medioPago = request.getParameter("medio_pago");
+                System.out.println("el medio de pago es " + medioPago);
+                switch(medioPago){
+                    case "Tarjeta de Debito": costo+= costo*0.03;
+                                                            break;
+                    case "Tarjeta de Credito": costo+= costo*0.09;
+                                                             break;
+                    case "Transferencia": costo+= costo*0.0245;
+                                                            break;
+                    default: break;
+                }
+                HttpSession misesion = request.getSession();
+                misesion.setAttribute("listaServiciosSeleccionados", listaServiciosSeleccionados);
+                misesion.setAttribute("cli", cli);
+                misesion.setAttribute("costo", costo);
+                misesion.setAttribute("medioPago", medioPago);
+                response.sendRedirect("confirmarVentaServicio.jsp");
+            }
         }
-        String medioPago = request.getParameter("medio_pago");
-        System.out.println("el medio de pago es " + medioPago);
-        switch(medioPago){
-            case "Tarjeta de Debito": costo+= costo*0.03;
-                                                    break;
-            case "Tarjeta de Credito": costo+= costo*0.09;
-                                                     break;
-            case "Transferencia": costo+= costo*0.0245;
-                                                    break;
-            default: break;
-        }
-        HttpSession misesion = request.getSession();
-        misesion.setAttribute("listaServiciosSeleccionados", listaServiciosSeleccionados);
-        misesion.setAttribute("cli", cli);
-        misesion.setAttribute("costo", costo);
-        misesion.setAttribute("medioPago", medioPago);
-        response.sendRedirect("confirmarVentaServicio.jsp");
+        
+        
     }
 
     

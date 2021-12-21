@@ -32,9 +32,10 @@
         %>
         <div class="container">
             <div class="table-responsive custom-table-responsive tm-bg-transparent-black">
-                <header class="col-xl-12"><h2 class="tm-text-shadow">Seleccione los servicios</h2></header>	
+                <header class="col-xl-12"><h2 class="tm-text-shadow">Seleccione los servicios</h2></header>
+                <input type="text"  id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Buscar por Servicio">
                 <form name="formCrearPaquete" method="post" action="SvAltaPaquete">
-                <table class="table custom-table">
+                <table class="table custom-table" id="myTable">
                   <thead>
                         <tr> 
                             <th scope="col"></th>
@@ -88,7 +89,29 @@
               if (checkedChecks.length >= max + 1)
                 return false;
             }
-        </script>
+            
+                function myFunction() {
+                  // Declare variables
+                  var input, filter, table, tr, td, i, txtValue;
+                  input = document.getElementById("myInput");
+                  filter = input.value.toUpperCase();
+                  table = document.getElementById("myTable");
+                  tr = table.getElementsByTagName("tr");
+
+                  // Loop through all table rows, and hide those who don't match the search query
+                  for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                      txtValue = td.textContent || td.innerText;
+                      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                      } else {
+                        tr[i].style.display = "none";
+                      }
+                    }
+                  }
+                }
+            </script>
         <%}%>
     </body>
 
